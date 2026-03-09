@@ -2743,6 +2743,7 @@ figcaption {
   place-items: center;
   width: 100%;
   max-width: 70%;
+  text-align: left;
 }
 
 .footer-link {
