@@ -1416,9 +1416,9 @@ figcaption {
   z-index: 2;
   max-width: var(--container--main);
   padding-right: var(--grid--page-padding);
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
   padding-left: var(--grid--page-padding);
-  text-align: center;
+  /* text-align: center; */
   justify-content: center;
   width: 100%;
   margin-left: auto;
@@ -5589,7 +5589,7 @@ figcaption {
     --_🔠-typography---letter-spacing--body-2: 0px;
     --_🔠-typography---font-family--h1: var(--_🔠-typography---font--heading-serif);
     --_🔠-typography---size--h1: 48px;
-    --_🔠-typography---line-height--h1: 44px;
+    --_🔠-typography---line-height--h1: 55px;
     --_🔠-typography---font-weight--h1: var(--_🔠-typography---weight--heading-serif);
     --_🔠-typography---letter-spacing--h1: -2px;
     --_🔠-typography---font-family--h2: var(--_🔠-typography---font--heading-serif);
@@ -6632,7 +6632,7 @@ details:hover {
 
 
 summary {
-  padding: 25px;
+  padding: 20px;
   font-weight: bold;
   cursor: pointer;
   list-style: none; /* Removes default arrow */
@@ -6669,6 +6669,7 @@ details[open] summary::after {
 @media (max-width: 768px) {
   .faq-container {
     flex-direction: column;
+    gap: 0;
   }
 }
 
@@ -6704,3 +6705,9 @@ details[open] summary::after {
   max-width: inherit; 
   height: auto;
 }
+
+@media screen and (max-width: 991px) {
+  .image-frame {
+  padding: 6px;
+}
+} 
