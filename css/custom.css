@@ -1481,7 +1481,7 @@ figcaption {
 .section {
   z-index: 2;
   padding-top: var(--section-padding--small);
-  /* padding-bottom: var(--section-padding--small); */
+  padding-bottom: var(--section-padding--small);
   position: relative;
 }
 
@@ -3154,7 +3154,7 @@ figcaption {
 .polaroid-card._1 {
   padding: var(--spacing--12);
   box-shadow: -24px 4px 40px 0 var(--_🎨-color---neutral--dark-8);
-  width: 600px;
+  width: 100%;
   position: absolute;
   inset: auto auto auto 0%;
   transform: none;
@@ -3171,6 +3171,7 @@ figcaption {
 
 .content-studio.right {
   max-width: 448px;
+  margin-top: 64px;
 }
 
 .image-wrap-events-home-bg {
@@ -6188,9 +6189,10 @@ figcaption {
   }
 
   .polaroid-card._1 {
-    margin-left: -134px;
-    bottom: 0;
+    /* margin-left: -134px; */
+    /* bottom: 0; */
     left: auto;
+    margin-top: 64px;
   }
 
   .column-feature-halves {
