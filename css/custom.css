@@ -1583,6 +1583,13 @@ figcaption {
   margin-bottom: var(--section-padding--extra-large);
 }
 
+@media screen and (min-width: 992px) {
+  .section.team-section.moms {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+}
+
 .section.hero-first-time-section {
   justify-content: flex-start;
   align-items: center;
@@ -2850,7 +2857,7 @@ figcaption {
   grid-column-gap: var(--spacing--32);
   grid-row-gap: var(--spacing--32);
   border-radius: var(--_🔘-radius---radius--small);
-  background-color: var(--_🎨-color---background--🪨-warm-sand);
+  background-color: var(--_🎨-color---accent--☀️-solar-core);
   color: var(--_🎨-color---neutral--dark-100);
   flex-flow: column;
   width: 264px;
@@ -2859,7 +2866,7 @@ figcaption {
 }
 
 .cta-home-hero:hover {
-  background-color: var(--_🎨-color---background--🥛-lotus-milk);
+  background-color: var(var(--_🎨-color---accent--☀️-solar-core));
 }
 
 .cta-home-bottom {
@@ -3036,8 +3043,8 @@ figcaption {
   width: 100%;
   height: 480px;
   transition: width 0.5s;
-  position: relative;
   overflow: hidden;
+  position: relative !important; 
 }
 
 .card-video:hover {
@@ -3049,6 +3056,8 @@ figcaption {
   color: var(--_🎨-color---neutral--light-100);
   width: 100%;
   height: 100%;
+  position: relative !important;
+  cursor: pointer;
 }
 
 .overlay-expandable-top {
@@ -3068,7 +3077,6 @@ figcaption {
 }
 
 .expandable-inner {
-  z-index: 2;
   padding: var(--spacing--20);
   flex-flow: column;
   justify-content: space-between;
@@ -3079,8 +3087,12 @@ figcaption {
   position: relative;
 }
 
+.expandable-inner:hover {
+  cursor: pointer;
+}
+
 .expandable-card-bottom {
-  white-space: pre-wrap;
+  white-space:inherit;
   word-break: normal;
   flex-flow: column;
   justify-content: flex-start;
@@ -6653,77 +6665,325 @@ details[open] summary::after {
 }
 } 
 
-/* ================= */
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px; 
-  height: 400px; 
+/* flip-card styles removed from here, unified at bottom of file */
+
+
+.slide-text {
+  line-height: 1.6;
 }
 
+.slide-button {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 1. Define the High Jump Animation */
+@keyframes bouncyJump {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-100px); /* The 100px max height */
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* 2. Apply to the Card */
+.news-home-hero.timetable-holder {
+  /* 3 second loop for a snappy jump, or 5s for a slower 'float' jump */
+  animation: bouncyJump 4s infinite; 
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+/* 3. Add a "Shadow" effect to make the jump look real */
+.news-home-hero.timetable-holder::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  width: 80%;
+  height: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.5;
+  transition: opacity 4s infinite, transform 4s infinite;
+  z-index: -1;
+}
+
+/* Sync the shadow with the jump */
+@keyframes shadowScale {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(0.5); opacity: 0.1; } /* Shadow fades as card goes up */
+}
+
+.news-home-hero.timetable-holder::after {
+  animation: shadowScale 4s infinite;
+}
+
+/* 4. Pause on Hover */
+.news-home-hero.timetable-holder:hover,
+.news-home-hero.timetable-holder:hover::after {
+  animation-play-state: paused;
+}
+
+/* ======= dropdown ========== */
+/* 1. Ensure the dropdown list is positioned correctly */
+.dropdown-list {
+  background-color: #fcf9f4; /* Match your nav background */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  min-width: 180px;
+}
+
+/* 2. Style the individual links inside the dropdown */
+.dropdown-link {
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+/* 3. Make the dropdown appear on hover (Desktop) */
+@media (min-width: 992px) {
+  .w-dropdown:hover .w-dropdown-list {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* 4. Fix alignment for the dropdown toggle to match your other nav buttons */
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0; /* Adjust if it's too wide */
+}
+
+.dropdown-icon {
+  margin-left: 5px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* 1. The Grid Container */
+.product-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 24px; /* Space between the pictures */
+  padding: 20px 0;
+}
+
+/* 2. The Card Styling */
+.product-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* 3. The Image Wrap */
+.image-wrap-product {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Makes images perfect squares */
+  overflow: hidden;
+  border-radius: 8px; /* Optional: rounds the corners */
+  background-color: #f4f4f4;
+}
+
+.image-product {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents stretching */
+  transition: scale 0.5s ease;
+}
+
+.product-card:hover .image-product {
+  scale: 1.05; /* Slight zoom in on image */
+}
+
+/* 4. Text Styling */
+.product-bottom-tile {
+  padding-top: 12px;
+}
+
+.text-body-bold {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+/* 5. Responsive Design (Mobile) */
+@media (max-width: 768px) {
+  .product-grid-wrapper {
+    grid-template-columns: 1fr; /* Stack into 1 column on tablets/phones */
+  }
+}
+
+
+.full-screen-link {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  
+  /* Place it above the video and overlays, but below the text if needed */
+  z-index: 5 !important;
+  
+  /* Make it invisible but 'solid' to the mouse */
+  background-color: rgba(0, 0, 0, 0);
+  display: block !important;
+}
+
+/* 3. Keep the text and inner content on top so it stays visible */
+.expandable-inner {
+  position: relative !important;
+  z-index: 10 !important;
+  
+  /* IMPORTANT: This lets the click pass THROUGH the text 
+     to the 'full-screen-link' underneath it */
+  pointer-events: none; 
+}
+
+/* 4. Re-enable pointer events for the actual button inside if you want it to hover separately */
+.cta-small {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 15 !important;
+}
+
+/* 5. Force the cursor to stay a pointer over the whole area */
+.video-expandable:hover {
+  cursor: pointer;
+}
+
+/* ============ */
+/* 1. Main Container */
+.card-team.flip-card {
+  perspective: 1000px; /* Standard 3D space */
+  cursor: pointer;
+  background-color: transparent;
+  height: 577px; /* Restored exact static height */
+  width: 100%;
+}
+
+/* 2. The Inner Wrapper (this actually rotates) */
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  transition: transform 1.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; /* Required for 3D effects */
 }
 
-.flip-card:hover .flip-card-inner {
+/* 3. Rotate on Hover */
+.card-team.flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
+/* 4. Front & Back Faces Common Styles */
 .flip-card-front, .flip-card-back {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 577px;
+  height: 100%;
   -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
-  border-radius: 8px; 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Maintain rounded corners for front image without flattening 3D */
+.flip-card-front .image-wrap-team {
+  border-radius: 10px 10px 0 0; /* Only round the top corners so text wraps cleanly below! */
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
+
+/* 5. Front Face Styling */
+.flip-card-front {
+  background-color: var(--_🎨-color---neutral--dark-100);
+  z-index: 2;
+  padding-bottom: 10px;
+}
+
+/* 6. Back Face Styling */
 .flip-card-back {
-  background-color: var(--_🎨-color---background--🪨-warm-sand);
-  transform: rotateY(180deg) translateZ(90px) scale(0.91);
+  background-color: var(--_🎨-color---neutral--dark-100);
+  transform: rotateY(180deg); /* Start rotated */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  overflow: hidden;
-  text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform-style: preserve-3d; /* Allows nested 3D elements */
+  text-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.flip-card-back p {
-  padding: 40px 20px;
-  text-align: justify;
+/* Override existing dark text classes inside flip cards to apply light text */
+.flip-card-front .text-dark-88,
+.flip-card-front .text-dark-64 {
+  color: var(--_🎨-color---neutral--light-88) !important;
 }
 
-
-.slide-text {
-  line-height: 1.6;
-  filter: blur(5px); 
+.flip-card-back .text-dark-88,
+.flip-card-back .text-dark-64,
+.flip-card-back .slide-text {
+  color: #ffffff !important;
 }
 
-
-.slide-text, .slide-button {
-  opacity: 0;
-  transform: translateX(-40px); 
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* 7. The "Distant Content" Effect (translateZ) */
+/* This makes the text look like it's floating above the card background */
+.flip-card-inner-content {
+  transform: translateZ(90px) scale(0.9);
+  width: 100%;
 }
 
-
-.flip-card:hover .slide-text {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.35s;   
-  filter: blur(0px);
+/* Additional styling for the content on the back */
+.flip-card-back .slide-text {
+  /* font-size: 0.9rem; */
+  /* line-height: 1.5; */
+  margin: 20px 0;
+  opacity: 0.9;
 }
 
-.flip-card:hover .slide-button {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 0.5s;  
+.text-white { color: #ffffff; }
+.text-white-64 { color: rgba(255, 255, 255, 0.64); }
+
+/* Responsive Grid for Mobile Devices */
+@media screen and (max-width: 767px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+@media screen and (max-width: 479px) {
+  .image-wrap-team {
+    height: 500px;
+  }
+}
+
+/* Fix dropdown active state blue color */
+.dropdown-link.w--current {
+  color: var(--_🎨-color---neutral--dark-100) !important;
+}
