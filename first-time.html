@@ -28,8 +28,8 @@
         (n.className += t + "js"), ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
       })(window, document);
     </script>
-    <link href="" rel="shortcut icon" type="" />
-    <link href="" rel="apple-touch-icon" />
+    <link href="images/Favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/logo.png" rel="apple-touch-icon" />
     <style>
       * {
         -webkit-font-smoothing: antialiased; /* For WebKit (Safari, Chrome) */
@@ -60,38 +60,24 @@
             </div>
             <a href="index.html" aria-current="page" class="brand-nav w-nav-brand w--current"
               ><img
-                src="images/5764986275185233185.jpg"
+                src="images/logo.png"
                 loading="lazy"
-                sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 800px) 100vw, 800px"
-                srcset="images/5764986275185233185-p-500.jpg 500w, images/5764986275185233185.jpg 800w"
                 alt=""
                 class="logo-brand"
-            /></a>
+              /></a>
           </div>
           <div class="right-nav">
             <nav role="navigation" class="nav-menu w-nav-menu">
               <div class="nav-menu-outer">
                 <div class="nav-menu-inner">
-                  <a href="classes.html" button="" class="nav-button nav-link w-inline-block">
+                  <a href="about.html" button="" class="nav-button nav-link w-inline-block">
                     <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Classes</div>
-                    </div>
-                    <div button-bg="" class="nav-button-bg"></div>
-                  </a>
-                  <a href="events.html" button="" class="nav-button nav-link w-inline-block">
-                    <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Events</div>
-                    </div>
-                    <div button-bg="" class="nav-button-bg"></div>
-                  </a>
-                  <a href="timetable.html" button="" class="nav-button nav-link w-inline-block">
-                    <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Schedule</div>
+                      <div button-text="" class="button-text nav-link-text">About</div>
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
                   <div data-hover="true" data-delay="0" class="nav-link w-dropdown" style="padding: 0 7px;">
-                    <div class="nav-button dropdown-toggle w-dropdown-toggle">
+                    <div class="nav-button dropdown-toggle w-dropdown-toggle" onclick="(function(t,e){e.stopPropagation();e.preventDefault();var d=t.closest('.w-dropdown');var l=d.querySelector('.w-dropdown-list');l.classList.toggle('mob-open');d.classList.toggle('mob-open')})(this,event)">
                       <div class="button-text-mask nav-button-mask">
                         <div class="button-text nav-link-text">Services</div>
                       </div>
@@ -104,9 +90,15 @@
                       <a href="./mamaspath.html" class="dropdown-link w-dropdown-link">Mamas Path</a>
                     </nav>
                   </div>
-                  <a href="about.html" button="" class="nav-button nav-link w-inline-block">
+                  <a href="corporate.html" button="" class="nav-button nav-link w-inline-block">
                     <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">About</div>
+                      <div button-text="" class="button-text nav-link-text">Corporate</div>
+                    </div>
+                    <div button-bg="" class="nav-button-bg"></div>
+                  </a>
+                  <a href="timetable.html" button="" class="nav-button nav-link w-inline-block">
+                    <div class="button-text-mask nav-button-mask">
+                      <div button-text="" class="button-text nav-link-text">Schedule</div>
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
@@ -116,14 +108,40 @@
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
+                  <div class="mobile-nav-ctas">
+                    <a href="./classes.html" button="" class="nav-button side-button w-inline-block">
+                      <div class="button-text-mask button-2">
+                        <div button-text="" class="button-text">Book a practice</div>
+                      </div>
+                      <div button-bg="" class="nav-button-bg side-button-bg"></div>
+                    </a>
+                    <a href="./events.html" button="" class="nav-button event-button w-inline-block">
+                      <div class="button-text-mask button-2">
+                        <div button-text="" class="button-text">Book an Event</div>
+                      </div>
+                      <div button-bg="" class="nav-button-bg event-button-bg"></div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </nav>
-            <a href="./classes.html" button="" class="nav-button side-button w-inline-block">
+            <a href="./classes.html" button="" class="nav-button side-button w-inline-block mobile-only-cta">
               <div class="button-text-mask button-2">
-                <div button-text="" class="button-text">Book a class</div>
+                <div button-text="" class="button-text">Book a practice</div>
               </div>
               <div button-bg="" class="nav-button-bg side-button-bg"></div>
+            </a>
+<a href="./classes.html" button="" class="nav-button side-button w-inline-block desktop-only-cta">
+              <div class="button-text-mask button-2">
+                <div button-text="" class="button-text">Book a practice</div>
+              </div>
+              <div button-bg="" class="nav-button-bg side-button-bg"></div>
+            </a>
+            <a href="./events.html" button="" class="nav-button event-button w-inline-block desktop-only-cta">
+              <div class="button-text-mask button-2">
+                <div button-text="" class="button-text">Book an Event</div>
+              </div>
+              <div button-bg="" class="nav-button-bg event-button-bg"></div>
             </a>
           </div>
         </div>
@@ -484,7 +502,7 @@
         <div class="footer-bottom-wrap">
           <div class="footer-legal-tile">
             <a href="index.html" aria-current="page" class="brand-footer w-inline-block w--current"
-              ><img src="./images/5764986275185233185.jpg" loading="lazy" alt="logo" class="logo-brand"
+              ><img src="./images/Healing House Logo_Verticle Light.png" loading="lazy" alt="logo" class="logo-brand" style="display: block; margin: 0 auto;"
             /></a>
             <div class="footer-legal-inner">
               <div class="text-small text-light-64">
@@ -617,5 +635,6 @@
       }
       requestAnimationFrame(raf);
     </script>
-  </body>
+    <script src="js/mobile-nav.js" type="text/javascript"></script>
+</body>
 </html>

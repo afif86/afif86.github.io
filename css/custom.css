@@ -1615,8 +1615,9 @@ figcaption {
 
 .section.hero-events-section,
 .section.hero-store-section {
-  padding-top: var(--section-padding--extra-large);
-  padding-bottom: var(--section-padding--extra-large);
+  padding-top: var(--section-padding--small);
+  padding-bottom: 0;
+  overflow-x: hidden;
 }
 
 .section.hero-event-section {
@@ -2145,6 +2146,7 @@ figcaption {
   align-items: center;
   display: flex;
   position: absolute;
+  color: transparent;
 }
 
 .image-cover {
@@ -2362,7 +2364,10 @@ figcaption {
   justify-content: center;
   align-items: center;
   transition: all 0.65s;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
   position: relative;
   margin: 0 10px;
 }
@@ -2488,6 +2493,22 @@ figcaption {
 .nav-button-bg.side-button-bg,
 .nav-button-bg.side-button-bg:hover {
   border-color: var(--_🎨-color---accent--🌑-solar-shadow);
+}
+
+.nav-button.event-button {
+  background-color: var(--_🎨-color---accent--☀️-solar-core);
+  border-radius: 20px;
+  transition: background-color 0.65s;
+}
+
+.nav-button.event-button:hover {
+  background-color: var(--_🎨-color---accent--🌑-solar-shadow);
+}
+
+.nav-button-bg.event-button-bg,
+.nav-button-bg.event-button-bg:hover {
+  border-color: var(--_🎨-color---accent--☀️-solar-core);
+  background-color: transparent;
 }
 
 .right-nav {
@@ -2744,7 +2765,7 @@ figcaption {
 }
 
 .brand-footer {
-  width: 94px;
+  width: 188px;
   position: absolute;
 }
 
@@ -5349,6 +5370,10 @@ figcaption {
     display: flex;
   }
 
+  .nav-button-bg.event-button-bg {
+    display: flex;
+  }
+
   .left-nav {
     z-index: 2;
     grid-column-gap: var(--spacing--16);
@@ -6779,9 +6804,10 @@ details[open] summary::after {
 /* 1. The Grid Container */
 .product-grid-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-  gap: 24px; /* Space between the pictures */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
   padding: 20px 0;
+  width: 100%;
 }
 
 /* 2. The Card Styling */
@@ -6791,6 +6817,7 @@ details[open] summary::after {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+  min-width: 0;
 }
 
 .product-card:hover {
@@ -6828,10 +6855,15 @@ details[open] summary::after {
   margin-bottom: 4px;
 }
 
-/* 5. Responsive Design (Mobile) */
-@media (max-width: 768px) {
+/* 5. Responsive Design */
+@media screen and (max-width: 991px) {
   .product-grid-wrapper {
-    grid-template-columns: 1fr; /* Stack into 1 column on tablets/phones */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 767px) {
+  .product-grid-wrapper {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -6992,4 +7024,283 @@ details[open] summary::after {
 .w-dropdown-toggle:hover .nav-link-text,
 .w-dropdown-toggle.w--open .nav-link-text {
   color: var(--_🎨-color---background--🪨-warm-sand) !important;
+}
+
+/* ── Mobile navbar CTA fix ─────────────────────────────────────────── */
+
+/* Desktop: hide buttons inside mobile dropdown, show desktop ones */
+.mobile-nav-ctas {
+  display: none;
+}
+.desktop-only-cta {
+  display: flex;
+}
+
+/* Mobile (≤ 991px): hide desktop CTAs, show them in dropdown menu */
+@media screen and (max-width: 991px) {
+  .desktop-only-cta {
+    display: none !important;
+  }
+
+  .mobile-nav-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 24px;
+    margin-top: 16px;
+    border-top: 1px solid var(--_🎨-color---neutral--dark-16);
+    width: 100%;
+  }
+
+  .mobile-nav-ctas .nav-button.side-button,
+  .mobile-nav-ctas .nav-button.event-button {
+    border-radius: 20px;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+
+/* ── Index hero mobile spacing fix ─────────────────────────────────── */
+@media screen and (max-width: 767px) {
+  .section.hero-home {
+    min-height: auto;
+  }
+  .video-home-a {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 479px) {
+  .section.hero-home {
+    min-height: auto;
+  }
+  .video-home-a {
+    height: 45vh;
+  }
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+
+/* ── CTA section button spacing ────────────────────────────────────── */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* ── Corporate Group Section: mobile fix ── */
+@media screen and (max-width: 767px) {
+  .corp-group-section .images-wrap-studio {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+  }
+  .corp-group-section .polaroid-card._1 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .corp-group-section .content-studio.right {
+    margin-top: 0;
+    max-width: 100%;
+  }
+}
+
+/* Classes page: reduce gap before price section on mobile */
+@media (max-width: 767px) {
+  .section-pricepackage {
+    margin-top: 50px;
+  }
+}
+
+/* ── detail_events: Sign Up button mobile fix ── */
+@media screen and (max-width: 767px) {
+  .form-block {
+    padding: 24px;
+  }
+  .contact-form-bottom-tile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Mobile nav: Services dropdown matches other items ── */
+@media screen and (max-width: 991px) {
+  /* Fix nav overlay clipping */
+  .w-nav-overlay {
+    overflow: visible;
+  }
+
+  /* Align the dropdown wrapper like other nav items */
+  .nav-link.w-dropdown {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    width: 100%;
+    z-index: auto;
+  }
+
+  /* Match toggle font to other nav links — bypass mask animation */
+  .nav-button.dropdown-toggle.w-dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 !important;
+    padding-right: 0 !important;
+    font-family: var(--_🔠-typography---font-family--h3);
+    font-size: var(--_🔠-typography---size--h3);
+    line-height: var(--_🔠-typography---line-height--h3);
+    font-weight: var(--_🔠-typography---font-weight--h3);
+    letter-spacing: var(--_🔠-typography---letter-spacing--h3);
+    text-transform: none;
+    color: var(--_🎨-color---neutral--dark-100);
+    background: none;
+    width: auto;
+  }
+  /* Remove mask clipping — show text directly */
+  .nav-button.dropdown-toggle .button-text-mask {
+    overflow: visible;
+    height: auto;
+  }
+  .nav-button.dropdown-toggle .button-text {
+    transform: none !important;
+    text-shadow: none;
+    position: static;
+    color: var(--_🎨-color---neutral--dark-100);
+  }
+
+  /* Arrow icon: inline next to text */
+  .nav-link.w-dropdown .w-icon-dropdown-toggle {
+    position: static;
+    margin: 0;
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Dropdown list: hidden by default, shown when Webflow adds w--nav-link-open */
+  .nav-menu-inner .w-dropdown-list {
+    display: none;
+    position: relative !important;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+    min-width: 0;
+    border-radius: 0;
+  }
+  .nav-menu-inner .w-dropdown-list.w--nav-link-open,
+  .nav-menu-inner .w-dropdown-list.w--open {
+    display: block !important;
+    position: relative !important;
+    padding: 6px 0 6px 20px;
+  }
+
+  .dropdown-link {
+    font-family: var(--_🔠-typography---font-family--h3);
+    font-size: calc(var(--_🔠-typography---size--h3) * 0.68);
+    font-weight: var(--_🔠-typography---font-weight--h3);
+    color: var(--_🎨-color---neutral--dark-64);
+    padding: 4px 0;
+    white-space: normal;
+    display: block;
+  }
+  .dropdown-link:hover {
+    background: none;
+    color: var(--_🎨-color---neutral--dark-100);
+  }
+}
+
+/* ── Mobile Services dropdown (mob-open toggle) ── */
+@media screen and (max-width: 991px) {
+  .nav-link.w-dropdown {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    text-align: left;
+  }
+  .w-dropdown-list {
+    display: none !important;
+  }
+  .w-dropdown-list.mob-open {
+    display: block !important;
+    position: relative !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 4px 0 4px 16px !important;
+    min-width: 0 !important;
+  }
+  .w-dropdown-list.mob-open .dropdown-link {
+    padding: 10px 20px;
+    color: #333 !important;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+  }
+  .w-dropdown-list.mob-open .dropdown-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #000 !important;
+  }
+  .w-dropdown-list.mob-open {
+    background-color: #fcf9f4 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    padding: 10px 0 !important;
+    min-width: 180px !important;
+  }
+}
+
+/* ── Services toggle: keep text visible at all times (mobile + desktop) ── */
+.nav-button.dropdown-toggle .button-text-mask {
+  overflow: visible !important;
+  height: auto !important;
+}
+.nav-button.dropdown-toggle .button-text {
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important;
+  text-shadow: none !important;
+}
+
+/* ── Services: force text color always visible ── */
+.nav-button.dropdown-toggle,
+.nav-button.dropdown-toggle .button-text,
+.nav-button.dropdown-toggle .nav-link-text {
+  color: var(--_🎨-color---neutral--dark-100) !important;
+}
+
+/* ── Services submenu links: dark brown ── */
+.dropdown-link,
+.w-dropdown-link {
+  color: var(--_🎨-color---neutral--dark-100) !important;
+}
+
+/* Mobile-only navbar CTA button */
+.mobile-only-cta {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .mobile-only-cta {
+    display: flex !important;
+    align-items: center;
+    margin-right: 8px;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    white-space: nowrap;
+  }
 }

@@ -28,14 +28,20 @@
         (n.className += t + "js"), ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
       })(window, document);
     </script>
-    <link href="" rel="shortcut icon" type="" />
-    <link href="" rel="apple-touch-icon" />
+    <link href="images/Favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/logo.png" rel="apple-touch-icon" />
     <style>
       * {
         -webkit-font-smoothing: antialiased; /* For WebKit (Safari, Chrome) */
         -moz-osx-font-smoothing: grayscale; /* For macOS Firefox */
         font-smoothing: antialiased; /* Non-standard, fallback */
         text-rendering: optimizeLegibility; /* Improves kerning and ligatures */
+      }
+      @media screen and (min-width: 992px) {
+        .section.team-section.moms {
+          padding-left: 8%;
+          padding-right: 8%;
+        }
       }
     </style>
   </head>
@@ -60,38 +66,24 @@
             </div>
             <a href="index.html" aria-current="page" class="brand-nav w-nav-brand w--current"
               ><img
-                src="images/5764986275185233185.jpg"
+                src="images/logo.png"
                 loading="lazy"
-                sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 800px) 100vw, 800px"
-                srcset="images/5764986275185233185-p-500.jpg 500w, images/5764986275185233185.jpg 800w"
                 alt=""
                 class="logo-brand"
-            /></a>
+              /></a>
           </div>
           <div class="right-nav">
             <nav role="navigation" class="nav-menu w-nav-menu">
               <div class="nav-menu-outer">
                 <div class="nav-menu-inner">
-                  <a href="classes.html" button="" class="nav-button nav-link w-inline-block">
+                  <a href="about.html" button="" class="nav-button nav-link w-inline-block">
                     <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Classes</div>
-                    </div>
-                    <div button-bg="" class="nav-button-bg"></div>
-                  </a>
-                  <a href="events.html" button="" class="nav-button nav-link w-inline-block">
-                    <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Events</div>
-                    </div>
-                    <div button-bg="" class="nav-button-bg"></div>
-                  </a>
-                  <a href="timetable.html" button="" class="nav-button nav-link w-inline-block">
-                    <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">Schedule</div>
+                      <div button-text="" class="button-text nav-link-text">About</div>
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
                   <div data-hover="true" data-delay="0" class="nav-link w-dropdown" style="padding: 0 7px;">
-                    <div class="nav-button dropdown-toggle w-dropdown-toggle">
+                    <div class="nav-button dropdown-toggle w-dropdown-toggle" onclick="(function(t,e){e.stopPropagation();e.preventDefault();var d=t.closest('.w-dropdown');var l=d.querySelector('.w-dropdown-list');l.classList.toggle('mob-open');d.classList.toggle('mob-open')})(this,event)">
                       <div class="button-text-mask nav-button-mask">
                         <div class="button-text nav-link-text">Services</div>
                       </div>
@@ -104,9 +96,15 @@
                       <a href="./mamaspath.html" class="dropdown-link w-dropdown-link">Mamas Path</a>
                     </nav>
                   </div>
-                  <a href="about.html" button="" class="nav-button nav-link w-inline-block">
+                  <a href="corporate.html" button="" class="nav-button nav-link w-inline-block">
                     <div class="button-text-mask nav-button-mask">
-                      <div button-text="" class="button-text nav-link-text">About</div>
+                      <div button-text="" class="button-text nav-link-text">Corporate</div>
+                    </div>
+                    <div button-bg="" class="nav-button-bg"></div>
+                  </a>
+                  <a href="timetable.html" button="" class="nav-button nav-link w-inline-block">
+                    <div class="button-text-mask nav-button-mask">
+                      <div button-text="" class="button-text nav-link-text">Schedule</div>
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
@@ -116,14 +114,40 @@
                     </div>
                     <div button-bg="" class="nav-button-bg"></div>
                   </a>
+                  <div class="mobile-nav-ctas">
+                    <a href="./classes.html" button="" class="nav-button side-button w-inline-block">
+                      <div class="button-text-mask button-2">
+                        <div button-text="" class="button-text">Book a practice</div>
+                      </div>
+                      <div button-bg="" class="nav-button-bg side-button-bg"></div>
+                    </a>
+                    <a href="./events.html" button="" class="nav-button event-button w-inline-block">
+                      <div class="button-text-mask button-2">
+                        <div button-text="" class="button-text">Book an Event</div>
+                      </div>
+                      <div button-bg="" class="nav-button-bg event-button-bg"></div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </nav>
-            <a href="./classes.html" button="" class="nav-button side-button w-inline-block">
+            <a href="./classes.html" button="" class="nav-button side-button w-inline-block mobile-only-cta">
               <div class="button-text-mask button-2">
-                <div button-text="" class="button-text">Book a class</div>
+                <div button-text="" class="button-text">Book a practice</div>
               </div>
               <div button-bg="" class="nav-button-bg side-button-bg"></div>
+            </a>
+<a href="./classes.html" button="" class="nav-button side-button w-inline-block desktop-only-cta">
+              <div class="button-text-mask button-2">
+                <div button-text="" class="button-text">Book a practice</div>
+              </div>
+              <div button-bg="" class="nav-button-bg side-button-bg"></div>
+            </a>
+            <a href="./events.html" button="" class="nav-button event-button w-inline-block desktop-only-cta">
+              <div class="button-text-mask button-2">
+                <div button-text="" class="button-text">Book an Event</div>
+              </div>
+              <div button-bg="" class="nav-button-bg event-button-bg"></div>
             </a>
           </div>
         </div>
@@ -153,25 +177,6 @@
               ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.
             </div>
 
-            <div class="body-article with-image w-richtext">
-              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
-              45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
-              one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
-              classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
-              Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-              ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.
-            </div>
-
-            <div class="image-wrap-blog-card">
-              <img
-                src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"
-                loading="lazy"
-                cms-image=""
-                alt=""
-                class="image-cover" />
-              <div cms-overlay="" class="overlay-cms-image blog-overlay"></div>
-            </div>
-
             <div class="body-article w-richtext">
               Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
               45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
@@ -180,6 +185,102 @@
               Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
               ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.
             </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="master-marquee-photos">
+        <div class="wrap-event-slider">
+          <div class="label-small">GAllery from previous events</div>
+          <div
+            data-delay="4000"
+            data-animation="slide"
+            class="slider w-slider"
+            data-autoplay="true"
+            data-easing="ease"
+            data-hide-arrows="false"
+            data-disable-swipe="false"
+            data-autoplay-limit="0"
+            data-nav-spacing="3"
+            data-duration="500"
+            data-infinite="true">
+            <div class="mask-polaroid w-slider-mask">
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Polaroid-Image_1Polaroid Image.webp" loading="lazy" sizes="(max-width: 721px) 100vw, 721px" srcset="./images/Polaroid-Image_1Polaroid Image.webp 500w, ./images/Polaroid-Image_1Polaroid Image.webp 721w" alt="Group yoga practice in mirrored studio" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Polaroid-Image_2Polaroid Image.webp" loading="lazy" sizes="(max-width: 721px) 100vw, 721px" srcset="./images/Polaroid-Image_2Polaroid Image.webp 500w, ./images/Polaroid-Image_2Polaroid Image.webp 721w" alt="Woman practicing yoga pose in green park" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Founder_1Founder.webp" loading="lazy" sizes="(max-width: 1055px) 100vw, 1055px" srcset="./images/Founder_1Founder.webp 500w, ./images/Founder_1Founder.webp 800w, ./images/Founder_1Founder.webp 1055w" alt="" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Yoga-Image04_1Yoga Image04.webp" loading="lazy" sizes="(max-width: 1333px) 100vw, 1333px" srcset="./images/Yoga-Image04_1Yoga Image04.webp 500w, ./images/Yoga-Image04_1Yoga Image04.webp 800w, ./images/Yoga-Image04_1Yoga Image04.webp 1080w, ./images/Yoga-Image04_1Yoga Image04.webp 1333w" alt="Outdoor yoga session with group on mats" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Gallery_1Gallery.webp" loading="lazy" sizes="100vw" srcset="./images/Gallery_1Gallery.webp 500w, ./images/Gallery_1Gallery.webp 800w, ./images/Gallery_1Gallery.webp 1080w" alt="" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+              <div class="slide-polaroid w-slide">
+                <div class="card-polaroid-slide">
+                  <div class="image-wrap-polaroid-slide">
+                    <img src="./images/Polaroid-Image_2Polaroid Image.webp" loading="lazy" sizes="(max-width: 721px) 100vw, 721px" srcset="./images/Polaroid-Image_2Polaroid Image.webp 500w, ./images/Polaroid-Image_2Polaroid Image.webp 721w" alt="Portrait of women in matching yoga outfits" class="image-cover" />
+                  </div>
+                  <div class="label-large text-dark-64">Magdalena Czakryńska</div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-button light prev w-slider-arrow-left">
+              <div class="icon-slider w-embed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24" fill="none">
+                  <path d="M19 12L6 12M12 19L5 12L12 5" stroke="currentColor" stroke-linecap="square"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="slider-button light next w-slider-arrow-right">
+              <div class="icon-slider w-embed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24" fill="none">
+                  <path d="M5 12H18M12 5L19 12L12 19" stroke="currentColor" stroke-linecap="square"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="hidden w-slider-nav w-round w-num"></div>
+          </div>
+        </div>
+      </div>
+      <div class="w-layout-blockcontainer main-container w-container" style="padding-top: var(--spacing--80);">
+        <div class="master-article-body">
+          <div class="body-article w-richtext">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from
+            45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
+            one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+            classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+            Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
+            ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.
           </div>
         </div>
       </div>
@@ -334,7 +435,7 @@
           </div>
           <a href="classes.html" button="" data-wf--cta-small--variant="light" class="cta-small cta-price w-inline-block">
             <div class="button-text-mask button-2">
-              <div button-text="" class="button-text">Book a class</div>
+              <div button-text="" class="button-text">Book a practice</div>
             </div>
             <div button-bg="" class="button-bg w-variant-dba8c3c2-0374-0ddc-0deb-fe2e6c9f2a80 button-price"></div>
           </a>
@@ -398,7 +499,7 @@
         <div class="footer-bottom-wrap">
           <div class="footer-legal-tile">
             <a href="index.html" aria-current="page" class="brand-footer w-inline-block w--current"
-              ><img src="./images/5764986275185233185.jpg" loading="lazy" alt="logo" class="logo-brand"
+              ><img src="./images/Healing House Logo_Verticle Light.png" loading="lazy" alt="logo" class="logo-brand" style="display: block; margin: 0 auto;"
             /></a>
             <div class="footer-legal-inner">
               <div class="text-small text-light-64">
@@ -507,7 +608,7 @@
       type="text/javascript"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"></script>
-    <script src="js/webflow.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/gsap/3.14.2/Observer.min.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/gsap/3.14.2/SplitText.min.js" type="text/javascript"></script>
@@ -531,5 +632,6 @@
       }
       requestAnimationFrame(raf);
     </script>
-  </body>
+    <script src="js/mobile-nav.js" type="text/javascript"></script>
+</body>
 </html>
