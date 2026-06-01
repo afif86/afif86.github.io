@@ -6537,6 +6537,14 @@ figcaption {
   font-family: inherit;
   font-size: inherit;
   outline: none;
+  accent-color: var(--_🎨-color---neutral--dark-100);
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--_🎨-color---neutral--dark-100);
+  box-shadow: 0 0 0 2px var(--_🎨-color---neutral--dark-16);
 }
 
 .input-group select {
@@ -6548,6 +6556,11 @@ figcaption {
   background-position: right 16px center;
   padding-right: 40px;
   cursor: pointer;
+}
+
+.input-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(31%) sepia(21%) saturate(542%) hue-rotate(345deg) brightness(91%) contrast(85%);
 }
 
 .input-group textarea {
