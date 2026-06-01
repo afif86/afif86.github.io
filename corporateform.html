@@ -135,8 +135,8 @@
         <form action="#" method="POST" class="form-container">
           <div class="form-grid">
             <div class="input-group">
-              <label class="label-large">Full Name</label>
-              <input type="text" name="name" placeholder="Jane Doe" required />
+              <label class="label-large">Corporate Name</label>
+              <input type="text" name="company" placeholder="e.g. Acme Corp" required />
             </div>
 
             <div class="input-group">
@@ -150,29 +150,6 @@
             </div>
 
             <div class="input-group">
-              <label class="label-large">Company Name</label>
-              <input type="text" name="company" placeholder="e.g. Acme Corp" required />
-            </div>
-
-            <div class="input-group">
-              <label class="label-large">Practice/Service of Interest</label>
-              <select name="practice" required>
-                <option value="" disabled selected>Please select...</option>
-                <option value="Sound Healing">Sound Healing</option>
-                <option value="Reiki">Reiki</option>
-                <option value="Yoga for Teams">Yoga for Teams</option>
-                <option value="Mindfulness + Meditation">Mindfulness + Meditation</option>
-                <option value="Wellness Workshops">Wellness Workshops</option>
-                <option value="Custom Retreat">Custom Retreat</option>
-              </select>
-            </div>
-
-            <div class="input-group">
-              <label class="label-large">Preferred Date / Time Slot</label>
-              <input type="datetime-local" name="preferred_datetime" required />
-            </div>
-
-            <div class="input-group">
               <label class="label-large">Number of participants</label>
               <select name="number_of_people" required>
                 <option value="" disabled selected>Please select...</option>
@@ -183,51 +160,24 @@
               </select>
             </div>
 
-            <div class="input-group">
-              <label class="label-large">Is this your first team event at Healing House?</label>
-              <select name="first_class" required>
+            <div class="input-group full-width">
+              <label class="label-large">What are you interested in?</label>
+              <select name="practice" required>
                 <option value="" disabled selected>Please select...</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="Sound Healing">Sound Healing</option>
+                <option value="Reiki">Reiki</option>
+                <option value="Yoga for Teams">Yoga for Teams</option>
+                <option value="Mindfulness + Meditation">Mindfulness + Meditation</option>
+                <option value="Wellness Workshops">Wellness Workshops</option>
+                <option value="Custom Retreat">Custom Retreat</option>
               </select>
             </div>
-
-            <div class="input-group full-width">
-              <label class="label-large">Have you worked with a wellness practitioner before?</label>
-              <select name="worked_with_practitioner" required>
-                <option value="" disabled selected>Please select...</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <div class="input-group full-width">
-              <label class="label-large">Any physical limitations or injuries?</label>
-              <textarea name="limitations" rows="3" placeholder="Please describe any physical considerations..."></textarea>
-            </div>
           </div>
 
           <div class="input-group">
-            <label class="label-large">What is bringing your company here?</label>
-            <textarea name="bringing_here" rows="3"
-              placeholder="Please share what brings your team to Healing House..." required></textarea>
-          </div>
-
-          <div class="input-group">
-            <label class="label-large">What are you hoping to work on?</label>
-            <textarea name="hope_to_work_on" rows="3"
-              placeholder="e.g. team bonding, stress relief, focus, body rejuvenation, wellness workshops..."></textarea>
-          </div>
-
-          <div class="input-group">
-            <label class="label-large">Anything you'd like me to know before we meet (optional)</label>
-            <textarea name="know_before_meet" rows="3"
-              placeholder="Feel free to share any details, expectations, or questions..."></textarea>
-          </div>
-
-          <div class="input-group">
-            <label class="label-large">How did you find us? (optional)</label>
-            <input type="text" name="referral" placeholder="e.g. Friends, Instagram, Search Engine..." />
+            <label class="label-large">Message Area</label>
+            <textarea name="message" rows="4"
+              placeholder="Tell us about your team's goals, preferred dates, or any special requests..." required></textarea>
           </div>
 
           <div class="input-group">
