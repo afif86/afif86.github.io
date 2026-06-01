@@ -1581,7 +1581,7 @@ figcaption {
 
 .section.team-section.moms {
   padding-top: 0;
-  margin-bottom: var(--section-padding--extra-large);
+  margin-bottom: 0;
   padding-left: 5%;
   padding-right: 5%;
 }
