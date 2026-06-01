@@ -192,9 +192,18 @@
               </select>
             </div>
 
-            <div class="input-group full-width">
+            <div class="input-group">
               <label class="label-large">Is this your first class at Healing House?</label>
               <select name="first_class" required>
+                <option value="" disabled selected>Please select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="label-large">Have you worked with a wellness practitioner before?</label>
+              <select name="worked_with_practitioner" required>
                 <option value="" disabled selected>Please select...</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
