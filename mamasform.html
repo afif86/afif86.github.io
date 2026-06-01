@@ -149,8 +149,19 @@
               </div>
 
               <div class="input-group">
+                <label class="label-large">Phone Number</label>
+                <input type="tel" name="phone" placeholder="+351 912 345 678" required />
+              </div>
+
+              <div class="input-group">
                 <label class="label-large">Stage of Motherhood</label>
-                <input type="text" name="stage" placeholder="e.g. Pregnant / Postpartum" />
+                <select name="stage" required>
+                  <option value="" disabled selected>Please select...</option>
+                  <option value="Pregnant">Pregnancy / Pregnant</option>
+                  <option value="Postpartum">Postpartum</option>
+                  <option value="Motherhood">Motherhood / Mother of child(ren)</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
               <div class="input-group">
@@ -173,14 +184,9 @@
                 <input type="text" name="referral" placeholder="e.g. Friends, Instagram" />
               </div>
 
-              <div class="input-group">
+              <div class="input-group full-width">
                 <label class="label-large">Primary goals for Mamas Path</label>
                 <input type="text" name="goals" placeholder="e.g. Pelvic health, rest, community" />
-              </div>
-
-              <div class="input-group">
-                <label class="label-large">Phone Number</label>
-                <input type="phone" name="phone" placeholder="088888888" />
               </div>
             </div>
 
