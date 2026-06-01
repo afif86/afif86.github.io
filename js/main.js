@@ -65253,3 +65253,475 @@ spurious results.`);
     n(64054),
     n(28967);
 })();
+
+/* ==========================================================================
+   Healing House Timetable Specific Scripts (Moved from timetable.html)
+   ========================================================================== */
+
+const DAYS = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+const classData = [
+  { day: 1, time: '11:00', end: '13:00', duration: '120 min', name: 'Yoga for Beginners', teacher: 'Anna K.', level: 'Advanced', path: 'Body Path', type: 'practices' },
+  { day: 2, time: '08:00', end: '10:00', duration: '120 min', name: 'Reiki for Beginners', teacher: 'Sam B.', level: 'Beginner', path: 'Vibrational Path', type: 'practices' },
+  { day: 3, time: '14:00', end: '16:00', duration: '120 min', name: 'Sound Healing', teacher: 'Parina A.S', level: 'Intermediate', path: 'Vibrational Path', type: 'practices' },
+  { day: 4, time: '14:00', end: '16:00', duration: '120 min', name: 'Dance for Everyone', teacher: 'Agita J.', level: 'Beginner', path: 'Body Path', type: 'practices' },
+  { day: 5, time: '10:00', end: '12:00', duration: '120 min', name: 'Yoga for Moms', teacher: 'Anna N.', level: 'Advanced', path: 'Mamas Path', type: 'practices' },
+  { day: 6, time: '09:00', end: '11:00', duration: '120 min', name: 'Yoga for Kids', teacher: 'Manuel D.', level: 'Intermediate', path: 'Body Path', type: 'practices' },
+  { day: 0, time: '09:00', end: '11:00', duration: '120 min', name: 'Yoga for Kids', teacher: 'Manuel D.', level: 'Intermediate', path: 'Body Path', type: 'practices' },
+  { day: 1, time: '14:00', end: '15:30', duration: '90 min', name: 'Breathwork & Restoration', teacher: 'Parina A.S', level: 'Beginner', path: 'Vibrational Path', type: 'events' },
+  { day: 3, time: '10:00', end: '12:00', duration: '120 min', name: 'Mindful Movement Course', teacher: 'Anna K.', level: 'Intermediate', path: 'Body Path', type: 'events' },
+];
+
+let currentTab = 'practices';
+let currentView = 'week';
+let selectedDay = null;
+let weekOffset = 0;
+let calendarOffset = 0;
+
+function getWeekDates(offset) {
+  const today = new Date();
+  const dow = today.getDay();
+  const sunday = new Date(today);
+  sunday.setDate(today.getDate() - dow + (offset * 7));
+  return Array.from({length: 7}, (_, i) => {
+    const d = new Date(sunday);
+    d.setDate(sunday.getDate() + i);
+    return d;
+  });
+}
+
+function setTab(tab) {
+  // Tabs removed, no-op
+}
+
+function setView(view) {
+  currentView = view;
+  const viewWeek = document.getElementById('view-week');
+  if (viewWeek) {
+    viewWeek.style.background = view === 'week' ? 'var(--_🎨-color---neutral--dark-100)' : 'rgb(234 225 217)';
+    viewWeek.style.color = view === 'week' ? 'white' : 'var(--_🎨-color---neutral--dark-100)';
+  }
+  const viewMonth = document.getElementById('view-month');
+  if (viewMonth) {
+    viewMonth.style.background = view === 'month' ? 'var(--_🎨-color---neutral--dark-100)' : 'rgb(234 225 217)';
+    viewMonth.style.color = view === 'month' ? 'white' : 'var(--_🎨-color---neutral--dark-100)';
+  }
+
+  const daySelector = document.getElementById('day-selector');
+  const scheduleList = document.getElementById('schedule-list');
+  const calendarView = document.getElementById('calendar-view');
+
+  if (view === 'month') {
+    if (daySelector) daySelector.style.display = 'none';
+    if (scheduleList) scheduleList.style.display = 'none';
+    if (calendarView) {
+      calendarView.style.display = 'block';
+      renderCalendar();
+    }
+  } else {
+    if (daySelector) daySelector.style.display = 'flex';
+    if (scheduleList) scheduleList.style.display = 'block';
+    if (calendarView) calendarView.style.display = 'none';
+    renderDays();
+    renderSchedule();
+  }
+}
+
+function renderCalendar() {
+  const calView = document.getElementById('calendar-view');
+  if (!calView) return;
+  const today = new Date();
+  const d = new Date(today.getFullYear(), today.getMonth() + calendarOffset, 1);
+  const year = d.getFullYear();
+  const month = d.getMonth();
+  const monthName = d.toLocaleString('default', { month: 'long' });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  let html = `<div style="background: white; border-radius: 8px; padding: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <button onclick="calendarOffset--; renderCalendar();" style="background: rgb(234 225 217); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--_🎨-color---neutral--dark-100);">&#8249;</button>
+      <div style="font-size: 1.1rem; font-weight: 600; color: var(--_🎨-color---neutral--dark-100);">${monthName} ${year}</div>
+      <button onclick="calendarOffset++; renderCalendar();" style="background: rgb(234 225 217); border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--_🎨-color---neutral--dark-100);">&#8250;</button>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 8px;">
+      ${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<div style="text-align: center; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--_🎨-color---neutral--dark-64); padding: 8px 0;">${d}</div>`).join('')}
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;">`;
+
+  for (let i = 0; i < firstDay; i++) html += '<div></div>';
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayOfWeek = new Date(year, month, day).getDay();
+    const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
+    html += `<div onclick="calendarDayClick(${dayOfWeek})" style="text-align: center; padding: 10px 4px; border-radius: 10px; border: 1px solid rgba(89,74,60,0.15); cursor: pointer; background: ${isToday ? 'var(--_🎨-color---neutral--dark-100)' : 'transparent'}; color: ${isToday ? 'white' : 'var(--_🎨-color---neutral--dark-100)'}; position: relative; transition: background 0.2s;" onmouseover="this.style.background=this.style.background||'rgb(234 225 217)'" onmouseout="this.style.background='${isToday ? 'var(--_🎨-color---neutral--dark-100)' : 'transparent'}'">
+      ${day}
+    </div>`;
+  }
+
+  html += `</div></div>`;
+  calView.innerHTML = html;
+}
+
+function calendarDayClick(dayOfWeek) {
+  selectedDay = dayOfWeek;
+  setView('week');
+}
+
+function shiftWeek(dir) {
+  weekOffset += dir;
+  selectedDay = null;
+  renderDays();
+  renderSchedule();
+}
+
+function renderDays() {
+  const dates = getWeekDates(weekOffset);
+  const today = new Date();
+  const container = document.getElementById('days-row');
+  if (!container) return;
+  container.innerHTML = '';
+  dates.forEach((d, i) => {
+    const isToday = d.toDateString() === today.toDateString();
+    const isSelected = selectedDay !== null ? selectedDay === d.getDay() : isToday;
+    const hasClasses = classData.some(c => c.day === d.getDay());
+    const btn = document.createElement('button');
+    btn.className = 'day-btn' + (isSelected ? ' active' : '') + (hasClasses ? ' has-classes' : '');
+    const fullDay = DAYS[d.getDay()];
+    const abbrDay = fullDay.slice(0, 3);
+    btn.innerHTML = '<div class="day-name"><span class="day-full">' + fullDay + '</span><span class="day-abbr">' + abbrDay + '</span></div><div class="day-num">' + d.getDate() + '</div>';
+    btn.onclick = () => { selectedDay = d.getDay(); renderDays(); renderSchedule(); };
+    container.appendChild(btn);
+  });
+}
+
+function filterAll() {
+  selectedDay = null;
+  const tf = document.querySelector('.teacher-filter-select');
+  if (tf) tf.value = '';
+  const lf = document.querySelector('.level-filter-select');
+  if (lf) lf.value = '';
+  
+  const fa = document.getElementById('filter-all');
+  if (fa) {
+    fa.style.background = 'var(--_🎨-color---neutral--dark-100)';
+    fa.style.color = 'white';
+  }
+  const ft = document.getElementById('filter-today');
+  if (ft) {
+    ft.style.background = 'transparent';
+    ft.style.color = 'var(--_🎨-color---neutral--dark-100)';
+  }
+  renderDays();
+  renderSchedule();
+}
+
+function filterToday() {
+  selectedDay = new Date().getDay();
+  const ft = document.getElementById('filter-today');
+  if (ft) {
+    ft.style.background = 'var(--_🎨-color---neutral--dark-100)';
+    ft.style.color = 'white';
+  }
+  const fa = document.getElementById('filter-all');
+  if (fa) {
+    fa.style.background = 'transparent';
+    fa.style.color = 'var(--_🎨-color---neutral--dark-100)';
+  }
+  renderDays();
+  renderSchedule();
+}
+
+function applyFilters() { renderSchedule(); }
+
+function getInitials(name) {
+  return name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
+}
+
+function renderSchedule() {
+  const tf = document.querySelector('.teacher-filter-select');
+  const lf = document.querySelector('.level-filter-select');
+  const teacher = tf ? tf.value : '';
+  const level = lf ? lf.value : '';
+  
+  const list = document.getElementById('schedule-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  let filtered = [...classData];
+  if (selectedDay !== null) filtered = filtered.filter(c => c.day === selectedDay);
+  if (teacher) filtered = filtered.filter(c => c.teacher === teacher);
+  if (level) filtered = filtered.filter(c => c.level === level);
+
+  filtered.sort((a, b) => a.day - b.day || a.time.localeCompare(b.time));
+
+  if (filtered.length === 0) {
+    list.innerHTML = '<div style="padding: 48px 0; text-align: center; color: var(--_🎨-color---neutral--dark-64);">No classes found for the selected filters.</div>';
+    return;
+  }
+
+  let lastDay = null;
+  filtered.forEach(c => {
+    if (c.day !== lastDay) {
+      const today = new Date().getDay();
+      const label = c.day === today ? 'Today' : DAYS[c.day];
+      const header = document.createElement('div');
+      header.className = 'schedule-day-header';
+      header.textContent = label;
+      list.appendChild(header);
+      lastDay = c.day;
+    }
+    const row = document.createElement('div');
+    row.className = 'schedule-row';
+    const typeLabel = c.type === 'events' ? 'Event' : 'Practice';
+    row.innerHTML =
+      '<div class="schedule-meta">' +
+        '<div class="schedule-time">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' +
+          c.time + ' &bull; ' + c.duration +
+        '</div>' +
+        '<div class="schedule-location">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>' +
+          typeLabel + ' - ' + c.path +
+        '</div>' +
+      '</div>' +
+      '<div class="schedule-info">' +
+        '<div class="schedule-class-name">' + c.name + '</div>' +
+        '<div class="schedule-instructor">' +
+          '<div class="schedule-avatar">' + getInitials(c.teacher) + '</div>' +
+          c.teacher +
+        '</div>' +
+      '</div>' +
+      '<a href="./detail_classes.html" class="schedule-book-btn">Book now</a>';
+    list.appendChild(row);
+  });
+}
+
+// Initialization with DOM Guard
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('schedule-list') && document.getElementById('days-row')) {
+      renderDays();
+      renderSchedule();
+    }
+  });
+}
+
+/* ==========================================================================
+   Global Boilerplate Scripts (Moved from timetable.html)
+   ========================================================================== */
+
+!(function (o, c) {
+  var n = c.documentElement,
+    t = " w-mod-";
+  (n.className += t + "js"), ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
+})(window, document);
+
+/* ==========================================================================
+   Global GSAP & Lenis Initialization (Moved from HTML files)
+   ========================================================================== */
+
+if (typeof gsap !== 'undefined' && typeof Observer !== 'undefined' && typeof SplitText !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(Observer, SplitText, ScrollTrigger);
+}
+
+if (typeof Lenis !== 'undefined') {
+  let lenis = new Lenis({
+    lerp: 0.1,
+    wheelMultiplier: 0.7,
+    gestureOrientation: "vertical",
+    normalizeWheel: false,
+    smoothTouch: false,
+  });
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
+
+/* ==========================================================================
+   Corporate.html Custom GSAP Animations
+   ========================================================================== */
+if (typeof gsap !== 'undefined' && typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('[data-w-id="corp-headline-article"]')) {
+      // Section 1 headline & content fade-in (matches mamaspath style)
+      gsap.from('[data-w-id="corp-headline-article"]', {
+        opacity: 0,
+        y: 28,
+        duration: 0.9,
+        ease: 'power2.out',
+        delay: 0.2
+      });
+      gsap.from('[data-w-id="corp-article-content"]', {
+        opacity: 0,
+        y: 36,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 0.45
+      });
+
+      // Scroll-triggered fade-up for bullet items and option items
+      gsap.utils.toArray('.corp-bullet-item, .corp-option-item').forEach(function (el, i) {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          delay: i * 0.06,
+          ease: 'power2.out'
+        });
+      });
+
+      // Fade-in images on scroll
+      gsap.utils.toArray('.col-img-main').forEach(function (el) {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          scale: 1.03,
+          duration: 0.9,
+          ease: 'power2.out'
+        });
+      });
+
+      // Fade-up section text columns
+      gsap.utils.toArray('.corp-col-text').forEach(function (el) {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 32,
+          duration: 0.8,
+          ease: 'power2.out'
+        });
+      });
+    }
+
+    // Smooth anchor scroll (globally safe)
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if(href === '#') return;
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  });
+}
+
+/* ==========================================================================
+   Page-Specific Scripts (Moved from HTML files)
+   ========================================================================== */
+
+/* detail_classes.html lightbox script */
+(function () {
+      const lightbox = document.getElementById('galleryLightbox');
+      const lightboxImg = document.getElementById('galleryLightboxImg');
+      const closeBtn = document.getElementById('galleryClose');
+
+      // Open on image click
+      document.querySelectorAll('.gallery-container .image-frame img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Close on button or backdrop click
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+
+/* index.html video slider script */
+$(document).ready(function () {
+      // Make sure all videos start paused
+      $(".video-expandable video").each(function () {
+        this.pause();
+        this.currentTime = 0; // optional: reset to start frame
+      });
+      $(".video-expandable").hover(
+        function () {
+          $("video", this).get(0).play();
+        },
+        function () {
+          $("video", this).get(0).pause();
+        },
+      );
+    });
+
+/* ==========================================================================
+   401.html Password Page Script
+   ========================================================================== */
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", () => {
+    if (/[?&]e=1(&|$)/.test(document.location.search)) {
+      const failMsg = document.querySelector(".w-password-page.w-form-fail");
+      if (failMsg) failMsg.style.display = "block";
+    }
+  });
+}
+
+/* ==========================================================================
+   Custom Dropdown Logic for Timetable Filters
+   ========================================================================== */
+function toggleDropdown(element) {
+  // Close all other dropdowns
+  document.querySelectorAll(".custom-dropdown-list").forEach(list => {
+    if (list !== element.nextElementSibling) {
+      list.style.display = "none";
+    }
+  });
+  
+  const list = element.nextElementSibling;
+  list.style.display = list.style.display === "none" ? "block" : "none";
+}
+
+function selectOption(optionElement, value, label) {
+  const container = optionElement.closest(".custom-dropdown");
+  container.querySelector(".custom-dropdown-selected").innerText = label;
+  const select = container.querySelector(".real-select");
+  if (select) {
+    select.value = value;
+    if (typeof applyFilters === "function") applyFilters();
+  }
+  container.querySelector(".custom-dropdown-list").style.display = "none";
+}
+
+// Close dropdowns if clicking outside
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".custom-dropdown")) {
+    document.querySelectorAll(".custom-dropdown-list").forEach(list => {
+      list.style.display = "none";
+    });
+  }
+});

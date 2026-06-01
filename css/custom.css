@@ -448,7 +448,8 @@
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
-  background-color: var(--_🎨-color---neutral--dark-100);;
+  background-color: var(--_🎨-color---neutral--dark-100);
+  ;
   border-width: 0;
   border-radius: 2px;
   align-items: center;
@@ -1180,6 +1181,7 @@
 }
 
 @media screen and (max-width: 479px) {
+
   .w-commerce-commerceaddtocartquantityinput,
   .w-commerce-commercecheckoutemailinput,
   .w-commerce-commercecheckoutshippingfullname,
@@ -1496,7 +1498,7 @@ figcaption {
 
 .section.hero-home {
   padding: var(--spacing--8);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
 }
 
@@ -1509,7 +1511,7 @@ figcaption {
 .section.home-studio-section {
   perspective-origin: 0 0;
   transform-origin: 0 0;
-  padding-bottom: 260px;
+  padding-bottom: 12%;
   overflow: clip;
 }
 
@@ -1542,7 +1544,7 @@ figcaption {
 
 .section.hero-article-section {
   padding-top: var(--section-padding--extra-large);
-  padding-bottom: var(--section-padding--large);
+  /* padding-bottom: var(--section-padding--large); */
 }
 
 .section.more-articles-section {
@@ -1557,8 +1559,7 @@ figcaption {
 }
 
 .section.about-founder-section {
-  padding-top: var(--section-padding--large);
-  padding-bottom: var(--section-padding--large);
+  padding-top: var(--section-padding--medium);
   -webkit-text-fill-color: inherit;
   background-clip: border-box;
 }
@@ -1581,13 +1582,8 @@ figcaption {
 .section.team-section.moms {
   padding-top: 0;
   margin-bottom: var(--section-padding--extra-large);
-}
-
-@media screen and (min-width: 992px) {
-  .section.team-section.moms {
-    padding-left: 12%;
-    padding-right: 12%;
-  }
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .section.hero-first-time-section {
@@ -1615,7 +1611,7 @@ figcaption {
 
 .section.hero-events-section,
 .section.hero-store-section {
-  padding-top: var(--section-padding--small);
+  padding-top: var(--section-padding--medium);
   padding-bottom: 0;
   overflow-x: hidden;
 }
@@ -2843,9 +2839,20 @@ figcaption {
 }
 
 .animation-wrap-home {
-  width: 220px;
+  width: auto;
+  max-width: 320px;
   margin: auto;
-  overflow: clip;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.hero-logo {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-wrap-animation {
@@ -2869,7 +2876,7 @@ figcaption {
 
 .heading-home-hero {
   color: var(--_🎨-color---neutral--light-88);
-  max-width: 332px;
+  max-width: 500px;
   margin-bottom: 40px;
 }
 
@@ -3065,7 +3072,7 @@ figcaption {
   height: 480px;
   transition: width 0.5s;
   overflow: hidden;
-  position: relative !important; 
+  position: relative !important;
 }
 
 .card-video:hover {
@@ -3113,7 +3120,7 @@ figcaption {
 }
 
 .expandable-card-bottom {
-  white-space:inherit;
+  white-space: inherit;
   word-break: normal;
   flex-flow: column;
   justify-content: flex-start;
@@ -3836,7 +3843,8 @@ figcaption {
   display: flex;
 }
 
-.team-grid {
+.team-grid,
+.our-team-grid {
   grid-column-gap: var(--grid--column-gap);
   grid-row-gap: var(--spacing--32);
   grid-template-rows: auto;
@@ -4495,7 +4503,6 @@ figcaption {
 }
 
 .video-timetable {
-  padding-top: var(--section-padding--extra-large);
   color: var(--_🎨-color---neutral--light-100);
   width: 100%;
   height: auto;
@@ -4509,6 +4516,7 @@ figcaption {
 }
 
 .headline-timetable {
+  padding-top: var(--section-padding--extra-large);
   max-width: var(--max-width--6-columns);
   grid-column-gap: var(--spacing--20);
   grid-row-gap: var(--spacing--20);
@@ -4537,8 +4545,8 @@ figcaption {
   display: flex !important;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;              
-  overflow-x: auto;       
+  gap: 20px;
+  overflow-x: auto;
 }
 
 .timetable-row {
@@ -4551,11 +4559,12 @@ figcaption {
   /* min-width: 224px; */
   display: flex;
 
-  flex: 1 0 200px;        
+  flex: 1 0 200px;
   min-width: 200px;
 }
 
-.timetable-collection, .timetable-list {
+.timetable-collection,
+.timetable-list {
   display: block;
   width: 100%;
 }
@@ -5163,7 +5172,8 @@ figcaption {
 
 .card-container:hover {
   box-shadow: 15px 15px 14px 6px #c6b8a9;
-  transform: translateY(-6px); /* Lifts the card slightly */
+  transform: translateY(-6px);
+  /* Lifts the card slightly */
 }
 
 .card-container ul {
@@ -5330,8 +5340,7 @@ figcaption {
 
   .navbar {
     padding-left: var(--spacing--12);
-    border-radius: var(--_🔘-radius---radius--button) var(--_🔘-radius---radius--button) var(--_🎨-color---ui--radius-navbar)
-      var(--_🎨-color---ui--radius-navbar);
+    border-radius: var(--_🔘-radius---radius--button) var(--_🔘-radius---radius--button) var(--_🎨-color---ui--radius-navbar) var(--_🎨-color---ui--radius-navbar);
     width: 100%;
   }
 
@@ -5548,7 +5557,8 @@ figcaption {
     height: 310px;
   }
 
-  .team-grid {
+  .team-grid,
+  .our-team-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -5608,7 +5618,7 @@ figcaption {
     grid-template-columns: 1fr 1fr;
   }
 
-  
+
 
   .product-halves {
     grid-column-gap: var(--spacing--64);
@@ -6354,6 +6364,7 @@ figcaption {
 }
 
 @media screen and (max-width: 991px) {
+
   #w-node-c934bec1-7b74-852d-6e9a-54cf38557471-349531d9,
   #w-node-a327d921-6ae2-b367-3d49-f411c156e442-349531e1,
   #w-node-_4270c0ca-af0e-fc83-120f-52043dd0fac7-349531e2,
@@ -6383,6 +6394,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-BoldItalic-BF64eff85c439e8.ttf") format("truetype");
@@ -6390,6 +6402,7 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-Regular-BF64eff85c37e2f.ttf") format("truetype"),
@@ -6398,6 +6411,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-Italic-BF64eff85c44a2e.ttf") format("truetype"),
@@ -6406,6 +6420,7 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-Bold-BF64eff85c12965.ttf") format("truetype");
@@ -6413,6 +6428,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-Medium-BF64eff85c2878d.ttf") format("truetype");
@@ -6420,6 +6436,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-SemiBold-BF64eff85c2c6ca.ttf") format("truetype");
@@ -6427,6 +6444,7 @@ figcaption {
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-MediumItalic-BF64eff85c562fc.ttf") format("truetype");
@@ -6434,6 +6452,7 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Libre Caslon Condensed";
   src: url("../fonts/LibreCaslonCondensed-SemiBoldItalic-BF64eff85c564cc.ttf") format("truetype");
@@ -6441,6 +6460,7 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Instrument Sans Variable";
   src: url("../images/") format("truetype");
@@ -6448,6 +6468,7 @@ figcaption {
   font-style: italic;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Instrument Sans Variable";
   src: url("../images/") format("truetype");
@@ -6466,13 +6487,15 @@ figcaption {
 }
 
 .cta-price {
-  margin-top: auto; /* This is the "magic" property that pushes the button down */
+  margin-top: auto;
+  /* This is the "magic" property that pushes the button down */
 }
 
 .section-pricepackage {
   margin-top: 100px;
   margin-bottom: 50px;
 }
+
 /* ======================== */
 
 .section-faq {
@@ -6536,6 +6559,7 @@ figcaption {
   .form-grid {
     grid-template-columns: 1fr;
   }
+
   .full-width {
     grid-column: span 1;
   }
@@ -6605,7 +6629,8 @@ details {
 
 details:hover {
   box-shadow: 0 8px 15px #594a3c52;
-  transform: translateY(-4px); /* Lifts the card slightly */
+  transform: translateY(-4px);
+  /* Lifts the card slightly */
 }
 
 
@@ -6613,7 +6638,8 @@ summary {
   padding: 20px;
   font-weight: bold;
   cursor: pointer;
-  list-style: none; /* Removes default arrow */
+  list-style: none;
+  /* Removes default arrow */
   position: relative;
 }
 
@@ -6657,7 +6683,7 @@ details[open] summary::after {
 .gallery-container {
   display: flex;
   justify-content: center;
-  gap: 20px; 
+  gap: 20px;
   padding: 50px;
   flex-wrap: wrap;
 }
@@ -6667,7 +6693,7 @@ details[open] summary::after {
   background-color: var(--_🎨-color---background--🪨-warm-sand);
   padding: 10px;
   border-radius: var(--_🔘-radius---radius--small);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -6680,15 +6706,58 @@ details[open] summary::after {
 .image-frame img {
   display: block;
   width: 100%;
-  max-width: inherit; 
-  height: auto;
+  max-width: inherit;
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* ── Lightbox overlay ── */
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox.is-open {
+  display: flex;
+}
+
+.gallery-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--_🔘-radius---radius--small);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  background: none;
+  border: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.gallery-lightbox-close:hover {
+  opacity: 1;
 }
 
 @media screen and (max-width: 991px) {
   .image-frame {
-  padding: 6px;
+    padding: 6px;
+  }
 }
-} 
 
 /* flip-card styles removed from here, unified at bottom of file */
 
@@ -6703,12 +6772,16 @@ details[open] summary::after {
 
 /* 1. Define the High Jump Animation */
 @keyframes bouncyJump {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
-    transform: translateY(-100px); /* The 100px max height */
+    transform: translateY(-100px);
+    /* The 100px max height */
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
@@ -6716,7 +6789,7 @@ details[open] summary::after {
 /* 2. Apply to the Card */
 .news-home-hero.timetable-holder {
   /* 3 second loop for a snappy jump, or 5s for a slower 'float' jump */
-  animation: bouncyJump 4s infinite; 
+  animation: bouncyJump 4s infinite;
   transition: transform 0.3s ease;
   will-change: transform;
 }
@@ -6729,7 +6802,7 @@ details[open] summary::after {
   left: 10%;
   width: 80%;
   height: 10px;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   filter: blur(8px);
   opacity: 0.5;
@@ -6739,8 +6812,19 @@ details[open] summary::after {
 
 /* Sync the shadow with the jump */
 @keyframes shadowScale {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(0.5); opacity: 0.1; } /* Shadow fades as card goes up */
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(0.5);
+    opacity: 0.1;
+  }
+
+  /* Shadow fades as card goes up */
 }
 
 .news-home-hero.timetable-holder::after {
@@ -6756,7 +6840,8 @@ details[open] summary::after {
 /* ======= dropdown ========== */
 /* 1. Ensure the dropdown list is positioned correctly */
 .dropdown-list {
-  background-color: #fcf9f4; /* Match your nav background */
+  background-color: #fcf9f4;
+  /* Match your nav background */
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
@@ -6792,7 +6877,8 @@ details[open] summary::after {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 0; /* Adjust if it's too wide */
+  padding: 0;
+  /* Adjust if it's too wide */
 }
 
 .dropdown-icon {
@@ -6821,27 +6907,32 @@ details[open] summary::after {
 }
 
 .product-card:hover {
-  transform: translateY(-5px); /* Subtle lift on hover */
+  transform: translateY(-5px);
+  /* Subtle lift on hover */
 }
 
 /* 3. The Image Wrap */
 .image-wrap-product {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Makes images perfect squares */
+  aspect-ratio: 1 / 1;
+  /* Makes images perfect squares */
   overflow: hidden;
-  border-radius: 8px; /* Optional: rounds the corners */
+  border-radius: 8px;
+  /* Optional: rounds the corners */
   background-color: #f4f4f4;
 }
 
 .image-product {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Prevents stretching */
+  object-fit: cover;
+  /* Prevents stretching */
   transition: scale 0.5s ease;
 }
 
 .product-card:hover .image-product {
-  scale: 1.05; /* Slight zoom in on image */
+  scale: 1.05;
+  /* Slight zoom in on image */
 }
 
 /* 4. Text Styling */
@@ -6861,6 +6952,7 @@ details[open] summary::after {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 @media screen and (max-width: 767px) {
   .product-grid-wrapper {
     grid-template-columns: minmax(0, 1fr);
@@ -6874,10 +6966,10 @@ details[open] summary::after {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  
+
   /* Place it above the video and overlays, but below the text if needed */
   z-index: 5 !important;
-  
+
   /* Make it invisible but 'solid' to the mouse */
   background-color: rgba(0, 0, 0, 0);
   display: block !important;
@@ -6887,10 +6979,10 @@ details[open] summary::after {
 .expandable-inner {
   position: relative !important;
   z-index: 10 !important;
-  
+
   /* IMPORTANT: This lets the click pass THROUGH the text 
      to the 'full-screen-link' underneath it */
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 /* 4. Re-enable pointer events for the actual button inside if you want it to hover separately */
@@ -6908,10 +7000,12 @@ details[open] summary::after {
 /* ============ */
 /* 1. Main Container */
 .card-team.flip-card {
-  perspective: 1000px; /* Standard 3D space */
+  perspective: 1000px;
+  /* Standard 3D space */
   cursor: pointer;
   background-color: transparent;
-  height: 577px; /* Restored exact static height */
+  height: 577px;
+  /* Restored exact static height */
   width: 100%;
 }
 
@@ -6922,7 +7016,8 @@ details[open] summary::after {
   height: 100%;
   text-align: center;
   transition: transform 1.15s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d; /* Required for 3D effects */
+  transform-style: preserve-3d;
+  /* Required for 3D effects */
 }
 
 /* 3. Rotate on Hover */
@@ -6931,13 +7026,14 @@ details[open] summary::after {
 }
 
 /* 4. Front & Back Faces Common Styles */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 10px;
   display: flex;
@@ -6946,7 +7042,8 @@ details[open] summary::after {
 
 /* Maintain rounded corners for front image without flattening 3D */
 .flip-card-front .image-wrap-team {
-  border-radius: 10px 10px 0 0; /* Only round the top corners so text wraps cleanly below! */
+  border-radius: 10px 10px 0 0;
+  /* Only round the top corners so text wraps cleanly below! */
   margin-bottom: 10px;
   overflow: hidden;
 }
@@ -6962,14 +7059,16 @@ details[open] summary::after {
 /* 6. Back Face Styling */
 .flip-card-back {
   background-color: var(--_🎨-color---neutral--dark-100);
-  transform: rotateY(180deg); /* Start rotated */
+  transform: rotateY(180deg);
+  /* Start rotated */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  transform-style: preserve-3d; /* Allows nested 3D elements */
-  text-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform-style: preserve-3d;
+  /* Allows nested 3D elements */
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Override existing dark text classes inside flip cards to apply light text */
@@ -6999,12 +7098,19 @@ details[open] summary::after {
   opacity: 0.9;
 }
 
-.text-white { color: #ffffff; }
-.text-white-64 { color: rgba(255, 255, 255, 0.64); }
+.text-white {
+  color: #ffffff;
+}
+
+.text-white-64 {
+  color: rgba(255, 255, 255, 0.64);
+}
 
 /* Responsive Grid for Mobile Devices */
 @media screen and (max-width: 767px) {
-  .team-grid {
+
+  .team-grid,
+  .our-team-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -7032,6 +7138,7 @@ details[open] summary::after {
 .mobile-nav-ctas {
   display: none;
 }
+
 .desktop-only-cta {
   display: flex;
 }
@@ -7060,6 +7167,7 @@ details[open] summary::after {
     padding: 10px 20px;
   }
 }
+
 /* ─────────────────────────────────────────────────────────────────── */
 
 
@@ -7068,18 +7176,22 @@ details[open] summary::after {
   .section.hero-home {
     min-height: auto;
   }
+
   .video-home-a {
     height: 50vh;
   }
 }
+
 @media screen and (max-width: 479px) {
   .section.hero-home {
     min-height: auto;
   }
+
   .video-home-a {
     height: 45vh;
   }
 }
+
 /* ─────────────────────────────────────────────────────────────────── */
 
 
@@ -7091,6 +7203,7 @@ details[open] summary::after {
   align-items: center;
   justify-content: center;
 }
+
 /* ─────────────────────────────────────────────────────────────────── */
 
 /* ── Corporate Group Section: mobile fix ── */
@@ -7102,6 +7215,7 @@ details[open] summary::after {
     width: 100%;
     overflow: visible;
   }
+
   .corp-group-section .polaroid-card._1 {
     position: relative;
     inset: auto;
@@ -7109,6 +7223,7 @@ details[open] summary::after {
     max-width: 340px;
     margin: 0 auto;
   }
+
   .corp-group-section .content-studio.right {
     margin-top: 0;
     max-width: 100%;
@@ -7127,6 +7242,7 @@ details[open] summary::after {
   .form-block {
     padding: 24px;
   }
+
   .contact-form-bottom-tile {
     flex-direction: column;
     align-items: flex-start;
@@ -7135,6 +7251,7 @@ details[open] summary::after {
 
 /* ── Mobile nav: Services dropdown matches other items ── */
 @media screen and (max-width: 991px) {
+
   /* Fix nav overlay clipping */
   .w-nav-overlay {
     overflow: visible;
@@ -7169,11 +7286,13 @@ details[open] summary::after {
     background: none;
     width: auto;
   }
+
   /* Remove mask clipping — show text directly */
   .nav-button.dropdown-toggle .button-text-mask {
     overflow: visible;
     height: auto;
   }
+
   .nav-button.dropdown-toggle .button-text {
     transform: none !important;
     text-shadow: none;
@@ -7199,6 +7318,7 @@ details[open] summary::after {
     min-width: 0;
     border-radius: 0;
   }
+
   .nav-menu-inner .w-dropdown-list.w--nav-link-open,
   .nav-menu-inner .w-dropdown-list.w--open {
     display: block !important;
@@ -7215,6 +7335,7 @@ details[open] summary::after {
     white-space: normal;
     display: block;
   }
+
   .dropdown-link:hover {
     background: none;
     color: var(--_🎨-color---neutral--dark-100);
@@ -7230,9 +7351,11 @@ details[open] summary::after {
     width: 100%;
     text-align: left;
   }
+
   .w-dropdown-list {
     display: none !important;
   }
+
   .w-dropdown-list.mob-open {
     display: block !important;
     position: relative !important;
@@ -7241,6 +7364,7 @@ details[open] summary::after {
     padding: 4px 0 4px 16px !important;
     min-width: 0 !important;
   }
+
   .w-dropdown-list.mob-open .dropdown-link {
     padding: 10px 20px;
     color: #333 !important;
@@ -7251,10 +7375,12 @@ details[open] summary::after {
     font-weight: normal;
     transition: background-color 0.3s ease;
   }
+
   .w-dropdown-list.mob-open .dropdown-link:hover {
     background-color: rgba(0, 0, 0, 0.05);
     color: #000 !important;
   }
+
   .w-dropdown-list.mob-open {
     background-color: #fcf9f4 !important;
     border-radius: 8px !important;
@@ -7269,6 +7395,7 @@ details[open] summary::after {
   overflow: visible !important;
   height: auto !important;
 }
+
 .nav-button.dropdown-toggle .button-text {
   transform: none !important;
   opacity: 1 !important;
@@ -7294,6 +7421,7 @@ details[open] summary::after {
 .mobile-only-cta {
   display: none;
 }
+
 @media screen and (max-width: 991px) {
   .mobile-only-cta {
     display: flex !important;
@@ -7303,4 +7431,467 @@ details[open] summary::after {
     font-size: 13px !important;
     white-space: nowrap;
   }
+}
+
+/* ── Corporate Partner Logos Slider ── */
+.corp-logos-section {
+  padding: 80px 0;
+  background-color: var(--_🎨-color---background--🎨-moon-dust);
+  text-align: center;
+  overflow: hidden;
+}
+
+.corp-logos-title {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row-gap: var(--spacing--24);
+}
+
+.corp-logos-title h2 {
+  font-family: var(--_🔠-typography---font--heading-serif, "Libre Caslon Condensed", serif);
+  font-size: var(--_🔠-typography---size--h2);
+  line-height: var(--_🔠-typography---line-height--h2);
+  font-weight: var(--_🔠-typography---font-weight--h2);
+  letter-spacing: var(--_🔠-typography---letter-spacing--h2);
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.logo-slider-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+/* Linear gradient fade overlays on left and right for premium soft-fade effect */
+.logo-slider-container::before,
+.logo-slider-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--_🎨-color---background--🎨-moon-dust), transparent);
+}
+
+.logo-slider-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--_🎨-color---background--🎨-moon-dust), transparent);
+}
+
+.logo-slider-track {
+  display: flex;
+  width: calc(250px * 10);
+  /* 5 logos doubled for infinite loop */
+  animation: logo-scroll 20s linear infinite;
+}
+
+.logo-slider-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-slide {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-slide img {
+  max-height: 100px;
+  max-width: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 1;
+  filter: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logo-slide:hover img {
+  transform: scale(1.04);
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-250px * 5));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .corp-logos-section {
+    padding: 60px 0;
+  }
+
+  .logo-slider-container::before,
+  .logo-slider-container::after {
+    width: 60px;
+  }
+
+  .logo-slide {
+    width: 160px;
+  }
+
+  .logo-slider-track {
+    width: calc(160px * 10);
+  }
+
+  @keyframes logo-scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-160px * 5));
+    }
+  }
+
+  .logo-slide img {
+    max-height: 35px;
+    max-width: 120px;
+  }
+}
+
+/* ==========================================================================
+   Healing House Timetable Specific Styles (Moved from timetable.html)
+   ========================================================================== */
+
+.classes-cta-two .card-container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Price package mobile */
+.section-pricepackage .classes-cta-two {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 991px) {
+  .section-pricepackage .classes-cta-two {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-pricepackage .classes-cta-two {
+    grid-template-columns: 1fr !important;
+  }
+
+  .classes-cta-two .card-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section.hero-timetable-section .w-layout-blockcontainer.main-container.w-container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+#calendar-view button {
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.schedule-day-header {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--_🎨-color---neutral--dark-100);
+  margin: 32px 0 0 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--_🎨-color---neutral--dark-16);
+}
+
+.schedule-row {
+  padding: 30px;
+  background: var(--_🎨-color---background--🪨-warm-sand);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 30px;
+  border-bottom: 1px solid var(--_🎨-color---neutral--dark-16);
+  margin-bottom: 16px;
+}
+
+.schedule-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.schedule-time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.schedule-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--_🎨-color---neutral--dark-64);
+}
+
+.schedule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.schedule-class-name {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.schedule-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.schedule-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--_🎨-color---background--🎨-moon-dust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--_🎨-color---neutral--dark-100);
+  flex-shrink: 0;
+}
+
+.schedule-book-btn {
+  padding: 8px 20px;
+  background: var(--_🎨-color---neutral--dark-100);
+  color: var(--_🎨-color---neutral--light-100);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--_🔠-typography---font-family--button-2);
+  font-size: var(--_🔠-typography---size--button-2);
+  font-weight: var(--_🔠-typography---font-weight--button-2);
+  letter-spacing: var(--_🔠-typography---letter-spacing--button-2);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.65s;
+}
+
+.schedule-book-btn:hover {
+  background: var(--_🎨-color---accent--🌑-solar-shadow);
+}
+
+.day-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--_🎨-color---neutral--dark-16);
+  background: transparent;
+  cursor: pointer;
+  flex: 1;
+  transition: background 0.2s;
+}
+
+.day-btn.active {
+  background: var(--_🎨-color---neutral--dark-100);
+  color: white;
+  border-radius: 8px;
+}
+
+.day-btn.active .day-name,
+.day-btn.active .day-num {
+  color: white;
+}
+
+.day-btn.has-classes .day-num::after {
+  content: none;
+}
+
+.day-name {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--_🎨-color---neutral--dark-100);
+  margin-bottom: 4px;
+}
+
+.day-num {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+@media (max-width: 768px) {
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  /* Day selector */
+  #day-selector {
+    padding: 12px 8px !important;
+    gap: 4px !important;
+  }
+
+  .day-btn {
+    padding: 6px 2px !important;
+  }
+
+  .day-full {
+    display: none;
+  }
+
+  .day-abbr {
+    display: inline;
+  }
+
+  .day-name {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  .day-num {
+    font-size: 0.875rem;
+  }
+
+  /* Filters */
+  #teacher-filter,
+  #level-filter {
+    min-width: 0 !important;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  #teacher-filter,
+  #level-filter {
+    width: 100px;
+  }
+}
+
+/* ==========================================================================
+   Global Boilerplate Styles (Moved from timetable.html)
+   ========================================================================== */
+
+html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
+  visibility: hidden !important;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  /* For WebKit (Safari, Chrome) */
+  -moz-osx-font-smoothing: grayscale;
+  /* For macOS Firefox */
+  font-smoothing: antialiased;
+  /* Non-standard, fallback */
+  text-rendering: optimizeLegibility;
+  /* Improves kerning and ligatures */
+}
+
+/* ==========================================================================
+   Page-Specific Styles (Moved from HTML files)
+   ========================================================================== */
+
+/* index.html background video fallback */
+[data-wf-bgvideo-fallback-img] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-wf-bgvideo-fallback-img] {
+    position: absolute;
+    z-index: -100;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Footer Logo Adjustment */
+.footer .logo-brand {
+  padding: 10px;
+}
+
+/* Custom Dropdown for Timetable Filters */
+.custom-dropdown-option {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--_🎨-color---neutral--dark-64);
+  transition: color 0.2s, background 0.2s;
+}
+
+.custom-dropdown-option:hover {
+  color: var(--_🎨-color---neutral--dark-100);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Team Filters */
+.team-filters {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.team-filter-btn {
+  padding: 10px 20px;
+  border-radius: 40px;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  background: transparent;
+  color: var(--_🎨-color---neutral--dark-100);
+  font-family: var(--_🔠-typography---font-family--body-1);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.team-filter-btn.active,
+.team-filter-btn:hover {
+  background: var(--_🎨-color---neutral--dark-100);
+  color: var(--_🎨-color---neutral--light-88);
 }
