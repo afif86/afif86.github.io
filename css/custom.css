@@ -6563,6 +6563,22 @@ figcaption {
   filter: invert(31%) sepia(21%) saturate(542%) hue-rotate(345deg) brightness(91%) contrast(85%);
 }
 
+.input-group input[type="datetime-local"]::-webkit-datetime-edit-field:focus {
+  background-color: var(--_🎨-color---neutral--dark-100);
+  color: var(--_🎨-color---neutral--light-100);
+  border-radius: 2px;
+}
+
+/* Global Selection Styling Overrides to prevent default browser blue highlight */
+::selection {
+  background-color: var(--_🎨-color---neutral--dark-32);
+  color: var(--_🎨-color---neutral--light-100);
+}
+::-moz-selection {
+  background-color: var(--_🎨-color---neutral--dark-32);
+  color: var(--_🎨-color---neutral--light-100);
+}
+
 .input-group textarea {
   height: 150px;
 }
