@@ -7939,3 +7939,9 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
   background: var(--_🎨-color---neutral--dark-100);
   color: var(--_🎨-color---neutral--light-88);
 }
+
+/* Fricta page hero — remove horizontal margins from all direct children */
+.fricta-page .fricta-hero > * {
+  margin-left: 0;
+  margin-right: 0;
+}
