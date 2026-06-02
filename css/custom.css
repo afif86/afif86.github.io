@@ -6574,6 +6574,7 @@ figcaption {
   background-color: var(--_🎨-color---neutral--dark-32);
   color: var(--_🎨-color---neutral--light-100);
 }
+
 ::-moz-selection {
   background-color: var(--_🎨-color---neutral--dark-32);
   color: var(--_🎨-color---neutral--light-100);
@@ -7124,7 +7125,17 @@ details[open] summary::after {
 .flip-card-back .text-dark-88,
 .flip-card-back .text-dark-64,
 .flip-card-back .slide-text {
-  color: #ffffff !important;
+  color: #ffffff;
+}
+
+/* Fricta page hero — remove horizontal margins from all direct children */
+.fricta-page .fricta-hero > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.fricta-page .fricta-hero h1 {
+  padding-bottom: 24px;
 }
 
 /* 7. The "Distant Content" Effect (translateZ) */
@@ -7938,10 +7949,4 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
 .team-filter-btn:hover {
   background: var(--_🎨-color---neutral--dark-100);
   color: var(--_🎨-color---neutral--light-88);
-}
-
-/* Fricta page hero — remove horizontal margins from all direct children */
-.fricta-page .fricta-hero > * {
-  margin-left: 0;
-  margin-right: 0;
 }
