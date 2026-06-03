@@ -7129,10 +7129,6 @@ details[open] summary::after {
 }
 
 
-.fricta-page .fricta-hero h1 {
-  padding-bottom: 24px;
-}
-
 /* 7. The "Distant Content" Effect (translateZ) */
 /* This makes the text look like it's floating above the card background */
 .flip-card-inner-content {
