@@ -7128,11 +7128,6 @@ details[open] summary::after {
   color: #ffffff;
 }
 
-/* Fricta page hero — remove horizontal margins from all direct children */
-.fricta-page .fricta-hero > * {
-  margin-left: 0;
-  margin-right: 0;
-}
 
 .fricta-page .fricta-hero h1 {
   padding-bottom: 24px;
