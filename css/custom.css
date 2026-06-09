@@ -7481,7 +7481,7 @@ details[open] summary::after {
 
 /* ── Corporate Partner Logos Slider ── */
 .corp-logos-section {
-  padding: 80px 0;
+  padding: 0 0 80px;
   background-color: var(--_🎨-color---background--🎨-moon-dust);
   text-align: center;
   overflow: hidden;
@@ -7583,7 +7583,7 @@ details[open] summary::after {
 
 @media screen and (max-width: 767px) {
   .corp-logos-section {
-    padding: 60px 0;
+    padding: 0 0 60px;
   }
 
   .logo-slider-container::before,
@@ -7940,4 +7940,31 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
 .team-filter-btn:hover {
   background: var(--_🎨-color---neutral--dark-100);
   color: var(--_🎨-color---neutral--light-88);
+}
+
+/* Custom styling for Enquire Now buttons on Corporate page */
+.cta-small.cta-corporate-enquire {
+  color: var(--_🎨-color---neutral--light-100);
+}
+
+.cta-small.cta-corporate-enquire .button-text {
+  text-shadow: 0 1.5em 0 var(--_🎨-color---neutral--dark-100);
+}
+
+.cta-small.cta-corporate-enquire:hover {
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.cta-small.cta-corporate-enquire:hover .button-text {
+  text-shadow: 0 1.5em 0 var(--_🎨-color---neutral--dark-100);
+}
+
+.cta-small.cta-corporate-enquire .button-bg {
+  background-color: var(--_🎨-color---accent--🌑-solar-shadow);
+  border-color: var(--_🎨-color---accent--🌑-solar-shadow);
+}
+
+.cta-small.cta-corporate-enquire:hover .button-bg {
+  background-color: var(--_🎨-color---neutral--light-100);
+  border-color: var(--_🎨-color---neutral--dark-16);
 }
