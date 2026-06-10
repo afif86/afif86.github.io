@@ -2470,6 +2470,21 @@ figcaption {
 .nav-button.side-button {
   background-color: #8a9570;
   border-radius: 20px;
+  color: var(--_🎨-color---neutral--light-100);
+  transition: background-color 0.65s, color 0.65s;
+}
+
+.nav-button.side-button .button-text {
+  text-shadow: 0 1.5em 0 var(--_🎨-color---neutral--dark-100);
+}
+
+.nav-button.side-button:hover {
+  background-color: transparent;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.nav-button.side-button:hover .button-text {
+  text-shadow: 0 1.5em 0 var(--_🎨-color---neutral--dark-100);
 }
 
 .nav-button-bg {
@@ -2506,6 +2521,11 @@ figcaption {
   border-color: var(--_🎨-color---accent--☀️-solar-core);
   background-color: transparent;
 }
+
+.nav-button.event-button:hover .nav-button-bg.event-button-bg {
+  border-color: var(--_🎨-color---accent--🌑-solar-shadow);
+}
+
 
 .right-nav {
   grid-column-gap: var(--spacing--24);
@@ -2778,13 +2798,19 @@ figcaption {
 
 .footer-link {
   font-family: var(--_🔠-typography---font-family--button-2);
-  color: var(--_🎨-color---neutral--light-100);
+  color: var(--_🎨-color---neutral--light-64);
   font-size: var(--_🔠-typography---size--button-2);
   line-height: var(--_🔠-typography---line-height--button-2);
   font-weight: var(--_🔠-typography---font-weight--button-2);
   letter-spacing: var(--_🔠-typography---letter-spacing--button-2);
   text-transform: uppercase;
+  transition: color 0.3s;
 }
+
+.footer-link:hover {
+  color: var(--_🎨-color---neutral--light-100);
+}
+
 
 .footer-links-column {
   grid-column-gap: var(--spacing--12);
