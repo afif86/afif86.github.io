@@ -7335,7 +7335,7 @@ details[open] summary::after {
     flex-direction: column;
     align-items: flex-start;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 var(--spacing--16);
     position: relative;
     width: 100%;
     z-index: auto;
@@ -7346,7 +7346,7 @@ details[open] summary::after {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 0 !important;
+    padding: 0 var(--spacing--16);
     padding-right: 0 !important;
     font-family: var(--_🔠-typography---font-family--h3);
     font-size: var(--_🔠-typography---size--h3);
@@ -7419,7 +7419,7 @@ details[open] summary::after {
   .nav-link.w-dropdown {
     display: block !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 var(--spacing--16);
     width: 100%;
     text-align: left;
   }
