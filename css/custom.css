@@ -1649,7 +1649,7 @@ figcaption {
 
 .section.hero-class-section {
   padding-top: var(--section-padding--extra-large);
-  padding-bottom: var(--spacing--48);
+  padding-bottom: var(--spacing--0);
   background-color: var(--_🎨-color---background--🎨-moon-dust);
 }
 
@@ -8414,4 +8414,10 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+/* detail_classes.html — teacher credit link under the class title */
+.class-teacher-credit {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 1.25rem;
 }
