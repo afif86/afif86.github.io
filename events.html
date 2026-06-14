@@ -156,8 +156,63 @@
                   </a>
                 </div>
               </div>
-              <div class="w-dyn-empty">
+              <!-- <div class="w-dyn-empty">
                 <div>No items found.</div>
+              </div> -->
+            </div>
+          </div>
+          <div class="filters-block">
+            <div class="filters-tile">
+              <div class="label-small text-dark-88">Date</div>
+              <div class="filter-list is-dropdown">
+                <div class="daterange-dropdown" data-start="" data-end="">
+                  <button type="button" class="daterange-dd-toggle" aria-haspopup="dialog" aria-expanded="false">
+                    <span class="daterange-dd-label is-placeholder">Start – End</span>
+                    <svg class="daterange-dd-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                      viewBox="0 0 16 16" fill="none">
+                      <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.2" />
+                      <path d="M2 6h12M5 1.5v3M11 1.5v3" stroke="currentColor" stroke-width="1.2"
+                        stroke-linecap="round" />
+                    </svg>
+                  </button>
+                  <div class="daterange-dd-panel" role="dialog" aria-label="Choose date range">
+                    <div class="daterange-dd-header">
+                      <button type="button" class="daterange-dd-nav" data-dir="-1"
+                        aria-label="Previous month">&#8249;</button>
+                      <span class="daterange-dd-title"></span>
+                      <button type="button" class="daterange-dd-nav" data-dir="1"
+                        aria-label="Next month">&#8250;</button>
+                    </div>
+                    <div class="daterange-dd-weekdays">
+                      <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                    </div>
+                    <div class="daterange-dd-grid"></div>
+                    <div class="daterange-dd-actions">
+                      <button type="button" class="daterange-dd-clear">Clear</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="filters-tile">
+              <div class="label-small text-dark-88">Type</div>
+              <div class="filter-list is-dropdown">
+                <div class="select-dropdown" data-value="">
+                  <button type="button" class="select-dd-toggle" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="select-dd-label">All</span>
+                    <svg class="select-dd-chevron" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                      viewBox="0 0 12 12" fill="none">
+                      <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none"></path>
+                    </svg>
+                  </button>
+                  <ul class="select-dd-list" role="listbox">
+                    <li role="option" data-value="" class="is-selected">All</li>
+                    <li role="option" data-value="retreat">Retreat</li>
+                    <li role="option" data-value="workshop">Workshop</li>
+                    <li role="option" data-value="sound-bath">Sound Bath</li>
+                    <li role="option" data-value="masterclass">Masterclass</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -441,6 +496,7 @@
   <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
   <!-- Global Lenis Initialization moved to main.js -->
   <script src="js/mobile-nav.js" type="text/javascript"></script>
+  <script src="js/events-filters.js" type="text/javascript"></script>
 </body>
 
 </html>
