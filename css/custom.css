@@ -1644,7 +1644,7 @@ figcaption {
 
 .section.hero-classes-section {
   padding-top: var(--section-padding--extra-large);
-  padding-bottom: var(--section-padding--extra-large);
+  padding-bottom: var(--section-padding--small);
 }
 
 .section.hero-class-section {
@@ -7992,4 +7992,426 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
 .cta-small.cta-corporate-enquire:hover .button-bg {
   background-color: var(--_🎨-color---neutral--light-100);
   border-color: var(--_🎨-color---neutral--dark-16);
+}
+
+/* ============================================================
+   Class page filters — select dropdowns + custom date picker
+   ============================================================ */
+.filters-block {
+  width: 100%;
+}
+
+.filters-block .label-small {
+  margin-bottom: 0;
+}
+
+.filter-list.is-dropdown {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.select-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.select-dd-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--_🎨-color---neutral--dark-100);
+  background-color: var(--_🎨-color---neutral--light-100);
+  border: 1px solid var(--_🎨-color---neutral--dark-16);
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.select-dd-chevron {
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.select-dropdown.open .select-dd-chevron {
+  transform: rotate(180deg);
+}
+
+.select-dd-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background-color: var(--_🎨-color---neutral--light-100);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(89, 74, 60, 0.15);
+  z-index: 50;
+  display: none;
+}
+
+.select-dropdown.open .select-dd-list {
+  display: block;
+}
+
+.select-dd-list li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--_🎨-color---neutral--dark-64);
+  cursor: pointer;
+}
+
+.select-dd-list li:hover,
+.select-dd-list li.is-selected {
+  background-color: var(--_🎨-color---neutral--dark-8);
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+/* Custom date picker */
+.date-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.date-dd-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--_🎨-color---neutral--dark-100);
+  background-color: transparent;
+  border: 1px solid var(--_🎨-color---neutral--dark-100);
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.date-dd-label.is-placeholder {
+  opacity: 0.6;
+}
+
+.date-dd-icon {
+  flex: none;
+}
+
+.date-dd-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-color: var(--_🎨-color---neutral--light-100);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(89, 74, 60, 0.15);
+  z-index: 50;
+  display: none;
+}
+
+.date-dropdown.open .date-dd-panel {
+  display: block;
+}
+
+.date-dd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.date-dd-title {
+  font-weight: 600;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.date-dd-nav {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--_🎨-color---neutral--dark-100);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.date-dd-nav:hover {
+  background-color: var(--_🎨-color---neutral--dark-8);
+}
+
+.date-dd-weekdays,
+.date-dd-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.date-dd-weekdays span {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--_🎨-color---neutral--dark-64);
+  padding: 4px 0;
+}
+
+.date-dd-grid button {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--_🎨-color---neutral--dark-100);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.date-dd-grid button.is-muted {
+  color: var(--_🎨-color---neutral--dark-32);
+}
+
+.date-dd-grid button:hover {
+  background-color: var(--_🎨-color---neutral--dark-8);
+}
+
+.date-dd-grid button.is-selected {
+  background-color: var(--_🎨-color---neutral--dark-100);
+  color: var(--_🎨-color---neutral--light-100);
+}
+
+/* Filters responsive layout */
+@media screen and (max-width: 991px) {
+  /* In the row layout the three filters share the width evenly */
+  .filters-block .filters-tile {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Stack filters full-width on phones/small tablets */
+  .filters-block {
+    flex-flow: column;
+  }
+
+  .filters-block .filters-tile {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .date-dd-panel {
+    padding: 12px;
+  }
+
+  .date-dd-grid button,
+  .select-dd-list li {
+    font-size: 0.85rem;
+  }
+}
+
+/* events.html — custom date RANGE picker (select a start and end day) */
+.daterange-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.daterange-dd-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--_🎨-color---neutral--dark-100);
+  background-color: transparent;
+  border: 1px solid var(--_🎨-color---neutral--dark-100);
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.daterange-dd-label.is-placeholder {
+  opacity: 0.6;
+}
+
+.daterange-dd-icon {
+  flex: none;
+}
+
+.daterange-dd-panel {
+  margin-top: 6px;
+  padding: 16px;
+  background-color: var(--_🎨-color---neutral--light-100);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(89, 74, 60, 0.15);
+  display: none;
+}
+
+.daterange-dropdown.open .daterange-dd-panel {
+  display: block;
+}
+
+.daterange-dd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.daterange-dd-title {
+  font-weight: 600;
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+.daterange-dd-nav {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--_🎨-color---neutral--dark-100);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.daterange-dd-nav:hover {
+  background-color: var(--_🎨-color---neutral--dark-8);
+}
+
+.daterange-dd-weekdays,
+.daterange-dd-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+}
+
+.daterange-dd-weekdays span {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--_🎨-color---neutral--dark-64);
+  padding: 4px 0;
+}
+
+.daterange-dd-grid button {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--_🎨-color---neutral--dark-100);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.daterange-dd-grid button.is-muted {
+  color: var(--_🎨-color---neutral--dark-32);
+}
+
+.daterange-dd-grid button:hover {
+  background-color: var(--_🎨-color---neutral--dark-8);
+}
+
+.daterange-dd-grid button.is-in-range {
+  background-color: var(--_🎨-color---neutral--dark-8);
+  border-radius: 0;
+}
+
+.daterange-dd-grid button.is-start,
+.daterange-dd-grid button.is-end {
+  background-color: var(--_🎨-color---neutral--dark-100);
+  color: var(--_🎨-color---neutral--light-100);
+}
+
+.daterange-dd-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.daterange-dd-clear {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--_🎨-color---neutral--dark-64);
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.daterange-dd-clear:hover {
+  color: var(--_🎨-color---neutral--dark-100);
+}
+
+@media screen and (max-width: 479px) {
+  .daterange-dd-panel {
+    padding: 12px;
+  }
+
+  .daterange-dd-grid button {
+    font-size: 0.85rem;
+  }
+}
+
+/* events.html — let the Type dropdown extend the column (flow in document)
+   instead of overflowing and being clipped by the section's overflow */
+.hero-events-section .select-dd-list {
+  position: static;
+  margin-top: 6px;
+}
+
+/* events.html — sticky filter column offset */
+.hero-events-section .cms-sticky {
+  top: 50px;
+}
+
+/* classes.html — keep the date calendar and filter dropdowns in-flow so the
+   column extends instead of overlapping (being covered by) the next section */
+.hero-classes-section .date-dd-panel,
+.hero-classes-section .select-dd-list {
+  position: static;
+  margin-top: 6px;
+}
+
+/* corporate.html — fade the hero background video at the bottom so it blends
+   into the next section instead of showing a hard edge */
+.video-footer.hero-video-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* about.html — founder video section: full-height video + centered content */
+.about-founder-video-section .video-about-founder {
+  height: 100vh;
+}
+
+.about-founder-video-section .content-founder-video {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
