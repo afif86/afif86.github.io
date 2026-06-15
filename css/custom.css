@@ -8421,3 +8421,107 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
   margin-bottom: 4px;
   font-size: 1.25rem;
 }
+
+/* timetable.html — price package card headings: larger bottom spacing */
+.section-pricepackage .card-container .heading-406,
+.section-pricepackage .card-container .heading-407 {
+  margin: 0 0 25px 0;
+}
+
+/* timetable.html — price section: co-resting accordion + extra info boxes */
+.section-pricepackage .coresting-accordion {
+  margin-top: 24px;
+}
+
+/* Disable the hover lift movement on this dropdown */
+.coresting-accordion:hover {
+  transform: none;
+}
+
+.pp-extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 4px;
+}
+
+.pp-info-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  background-color: var(--_🎨-color---background--🪨-warm-sand);
+  border: 1px solid var(--_🎨-color---neutral--dark-16);
+  border-radius: 12px;
+  color: var(--_🎨-color---neutral--dark-100);
+  box-shadow: 2px 0px 25px #594a3c52;
+}
+
+.pp-info-icon {
+  flex: none;
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.pp-info-icon--lg {
+  font-size: 2.2rem;
+}
+
+.pp-info-body {
+  flex: 1;
+}
+
+.pp-info-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pp-info-desc {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.pp-info-box .link-underline {
+  flex: none;
+  margin-left: 12px;
+}
+
+/* Price-section "Book Now" buttons — same look/animation as the cta-price
+   (Book your spot) button: solid gold pill, dark text; hover fills green */
+.section-pricepackage .link-underline {
+  text-decoration: none;
+  background-color: var(--_🎨-color---accent--☀️-solar-core);
+  border: 1px solid var(--_🎨-color---accent--☀️-solar-core);
+  border-radius: 20px;
+  padding: var(--spacing--8) var(--spacing--16);
+  color: var(--_🎨-color---neutral--dark-100);
+  transition: background-color 0.65s, border-color 0.65s, color 0.65s;
+}
+
+.section-pricepackage .link-underline a {
+  color: inherit;
+}
+
+.section-pricepackage .link-underline:hover {
+  background-color: var(--_🎨-color---accent--🌑-solar-shadow);
+  border-color: var(--_🎨-color---accent--🌑-solar-shadow);
+  color: var(--_🎨-color---neutral--light-100);
+}
+
+.section-pricepackage .card-container .link-underline {
+  margin-top: auto;
+  align-self: flex-start;
+  width: fit-content;
+}
+
+/* Card "Book Now" (cta-price) buttons: keep them content-width, not stretched */
+.section-pricepackage .card-container .cta-small {
+  align-self: flex-start;
+  margin: auto 0 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  .pp-extra {
+    grid-template-columns: 1fr;
+  }
+}
