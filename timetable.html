@@ -215,7 +215,7 @@
             <button onclick="filterToday()" id="filter-today"
               style="padding: 8px 20px; border-radius: 20px; border: none; background: rgb(234 225 217); color: var(--_🎨-color---neutral--dark-100); cursor: pointer; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Today</button>
           </div>
-          <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="tt-filter-dropdowns" style="display: flex; align-items: center; gap: 12px;">
             <div class="custom-dropdown" style="position: relative; min-width: 160px; font-size: 0.875rem;">
               <div class="custom-dropdown-trigger"
                 style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; border-radius: 20px; background: rgb(234 225 217); color: var(--_🎨-color---neutral--dark-100); cursor: pointer; width: 100%; box-sizing: border-box;"
@@ -227,7 +227,7 @@
               </div>
               <div class="custom-dropdown-list"
                 style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgb(234 225 217); border-radius: 12px; margin-top: 4px; padding: 8px 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1); box-sizing: border-box;">
-                <div class="custom-dropdown-option" onclick="selectOption(this, '', 'Teachers')">Teachers</div>
+                <div class="custom-dropdown-option" onclick="selectOption(this, '', 'Teachers')">All Teachers</div>
                 <div class="custom-dropdown-option" onclick="selectOption(this, 'Anna K.', 'Anna K.')">Anna K.</div>
                 <div class="custom-dropdown-option" onclick="selectOption(this, 'Sam B.', 'Sam B.')">Sam B.</div>
                 <div class="custom-dropdown-option" onclick="selectOption(this, 'Parina A.S', 'Parina A.S')">Parina A.S
@@ -269,6 +269,27 @@
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+            <div class="custom-dropdown" style="position: relative; min-width: 160px; font-size: 0.875rem;">
+              <div class="custom-dropdown-trigger"
+                style="display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; border-radius: 20px; background: rgb(234 225 217); color: var(--_🎨-color---neutral--dark-100); cursor: pointer; width: 100%; box-sizing: border-box;"
+                onclick="toggleDropdown(this)">
+                <span class="custom-dropdown-selected">All Offers</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+              <div class="custom-dropdown-list"
+                style="display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgb(234 225 217); border-radius: 12px; margin-top: 4px; padding: 8px 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1); box-sizing: border-box;">
+                <div class="custom-dropdown-option" onclick="selectOption(this, '', 'All Offers')">All</div>
+                <div class="custom-dropdown-option" onclick="selectOption(this, 'Events', 'Events')">Events</div>
+                <div class="custom-dropdown-option" onclick="selectOption(this, 'Practices', 'Practices')">Practices</div>
+              </div>
+              <select class="real-select offer-filter-select" style="display: none;">
+                <option value=""></option>
+                <option value="Events">Events</option>
+                <option value="Practices">Practices</option>
               </select>
             </div>
           </div>
