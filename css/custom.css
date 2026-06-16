@@ -1671,6 +1671,11 @@ figcaption {
   background-color: var(--_🎨-color---neutral--dark-100);
 }
 
+/* index.html — COLLABORATE section dark background */
+.section.home-collaboration--dark {
+  background-color: var(--_🎨-color---neutral--dark-100);
+}
+
 .color-wrap-style-guide {
   grid-row-gap: var(--spacing--8);
   flex-direction: column;
