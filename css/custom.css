@@ -8525,3 +8525,15 @@ html.w-mod-js:not(.w-mod-ix3) :is(.master-navigation, [cms-overlay]) {
     grid-template-columns: 1fr;
   }
 }
+
+/* timetable filters — stack the Teacher / Level / All Offers dropdowns on small screens */
+@media screen and (max-width: 767px) {
+  .tt-filter-dropdowns {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .tt-filter-dropdowns .custom-dropdown {
+    flex: 1 1 100%;
+  }
+}
